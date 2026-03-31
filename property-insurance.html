@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Insurance Uganda | Stallion Insurance Brokers</title>
+  <meta name="description" content="Safeguard your most valuable assets with comprehensive Property Insurance in Uganda. Cover against fire, burglary, floods, and natural disasters.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
+      --success: #1B7A3E; --danger: #D64045;
+      --neutral-100: #F7F8FA; --neutral-200: #E8EAF0;
+      --neutral-500: #6B7280; --neutral-700: #3D3D3D; --neutral-900: #111827; --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    p { margin-bottom: var(--sp-4); font-size: 1rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-16) 0; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; border-bottom: 1px solid var(--neutral-200); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display:flex; flex-direction:column; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+
+    /* Hero */
+    .product-hero { padding: 160px 0 var(--sp-12); background: linear-gradient(135deg, #111827 0%, #3D3D3D 100%); color: var(--white); text-align: center; }
+    .product-hero h1 { color: var(--white); margin-bottom: var(--sp-2); }
+    .hero-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: var(--sp-4); display: inline-block; padding: 24px; background: rgba(255,255,255,0.05); border-radius: 50%; border: 2px solid rgba(201,149,42,0.5); }
+    .breadcrumb { display: flex; justify-content: center; gap: 8px; color: var(--neutral-200); font-size: 0.9rem; margin-top: var(--sp-6); opacity: 0.8;}
+    .breadcrumb a { color: var(--accent); }
+
+    /* Main Grid Layout */
+    .layout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-12); margin-top: var(--sp-8); }
+    
+    .content-box { margin-bottom: var(--sp-12); }
+    .content-box h2 { border-bottom: 2px solid var(--accent-light); padding-bottom: 8px; margin-bottom: var(--sp-6); }
+
+    /* Coverage Grid */
+    .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+    .coverage-item { display: flex; gap: 16px; align-items: flex-start; background: var(--neutral-100); padding: var(--sp-6); border-radius: var(--radius-card); }
+    .coverage-item i { font-size: 1.5rem; color: var(--accent); background: var(--white); padding: 12px; border-radius: 50%; box-shadow: var(--shadow-card); }
+    
+    .audience-box { background: rgba(201,149,42,0.1); border-left: 4px solid var(--accent); padding: var(--sp-8); border-radius: 0 var(--radius-card) var(--radius-card) 0; margin-bottom: var(--sp-12); }
+    .audience-box h3 { color: var(--primary); display: flex; align-items: center; gap: 12px; }
+
+    .diff-list { list-style: none; }
+    .diff-list li { padding: var(--sp-4); border: 1px solid var(--neutral-200); border-radius: var(--radius-card); margin-bottom: var(--sp-4); display: flex; gap: 16px; background: var(--white); }
+    .diff-list i { color: var(--success); font-size: 1.5rem; margin-top: 4px; }
+
+    .process-steps { display: flex; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-12); text-align: center; }
+    .step-card { flex: 1; padding: var(--sp-6); background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); position: relative; }
+    .step-number { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .step-card i { font-size: 2rem; color: var(--primary); margin: var(--sp-4) 0; }
+
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+    .related-card { border: 1px solid var(--neutral-200); border-radius: var(--radius-card); padding: var(--sp-4); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
+    .related-card:hover { border-color: var(--accent); background: var(--neutral-100); }
+    .related-card i { font-size: 1.5rem; color: var(--primary); }
+
+    /* Sidebar Form */
+    .sidebar-widget { background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--sp-8); position: sticky; top: 100px; border-top: 4px solid var(--primary); }
+    .form-group { margin-bottom: var(--sp-4); }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+    .form-control { width: 100%; padding: 12px; border: 1px solid var(--neutral-200); border-radius: var(--radius-btn); font-family: var(--font-body); }
+    .sidebar-trust { margin-top: var(--sp-6); padding-top: var(--sp-6); border-top: 1px solid var(--neutral-200); }
+    .sidebar-trust ul li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.9rem; }
+    .sidebar-trust i { color: var(--success); }
+
+    .accordion-item { border-bottom: 1px solid var(--neutral-200); }
+    .accordion-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--sp-4) 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--primary); cursor: pointer; text-align: left; font-family: var(--font-body); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .accordion-content p { padding-bottom: var(--sp-4); color: var(--neutral-700); }
+    .accordion-btn.active + .accordion-content { max-height: 500px; }
+    .accordion-btn i { transition: 0.3s; color: var(--accent); }
+    .accordion-btn.active i { transform: rotate(180deg); }
+
+    /* Footer */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--sp-8); margin-bottom: var(--sp-8); }
+    .footer h4 { color: var(--white); font-family: var(--font-body); margin-bottom: var(--sp-4); }
+    .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: var(--sp-2); }
+    .footer ul li { margin-bottom: 8px; }
+    .footer-bottom { background: #071932; padding: var(--sp-4) 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media(max-width: 900px) {
+      .layout-grid, .coverage-grid { grid-template-columns: 1fr; }
+      .process-steps { flex-direction: column; }
+      .sidebar-widget { position: static; }
+      .nav-links, .nav-right .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products" class="active">Products</a></li>
+        <li><a href="claims.html">Claims</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <div class="container">
+      <div class="hero-icon"><i class="fa-solid fa-house-chimney"></i></div>
+      <h1>Property Insurance</h1>
+      <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.9;">Safeguarding homes, warehouses, and corporate facilities against unpredictable natural and man-made disasters.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <span>Products</span> &rsaquo; <span style="color:var(--white);">Property</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container layout-grid">
+      
+      <div class="main-content">
+        
+        <div class="content-box">
+          <h2>What is Property Insurance?</h2>
+          <p>For most Ugandans—whether individual homeowners or large-scale industrialists—property represents the largest capital expenditure of their lives. Without insurance, a single localized incident can wipe out decades of investment.</p>
+          <p>Property Insurance forms a critical financial safety net against catastrophic damages. It covers the physical structure of your building, its technical contents, and stock against perils ranging from catastrophic fires and lightning strikes to Kampala's seasonal flash floods and malicious burglary.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>What It Covers</h2>
+          <div class="coverage-grid">
+            <div class="coverage-item">
+              <i class="fa-solid fa-fire-flame-curved"></i>
+              <div><h4>Fire & Lightning</h4><p>Provides complete rebuild costs if a structure is destroyed by an accidental blaze.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-mask"></i>
+              <div><h4>Burglary</h4><p>Compensation for forcibly stolen contents, machinery, or stock.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-cloud-showers-water"></i>
+              <div><h4>Flood & Storms</h4><p>Crucial for businesses in marshy areas affected by extreme seasonal rainfall.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-users-slash"></i>
+              <div><h4>Riot & Malicious Damage</h4><p>Specific coverage protecting commercial storefronts against civil unrest.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-cash-register"></i>
+              <div><h4>Business Interruption</h4><p>Pays out lost net profits if a fire forces your business to temporarily shut down.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-couch"></i>
+              <div><h4>Home Contents</h4><p>For homeowners, replaces expensive electronics, furniture, and valuables.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="audience-box">
+          <h3><i class="fa-solid fa-building"></i> Who is this for?</h3>
+          <p><strong>Home & Estate Owners:</strong> Domestic package policies covering the building, domestic workers' liability, and personal belongings.<br><br>
+          <strong>SMEs & Corporates:</strong> Essential "Fire and Allied Perils" cover protecting warehouses, factories, office blocks, and retail storefronts.<br><br>
+          <strong>Property Developers:</strong> Contractors' All Risk (CAR) policies to ensure buildings are covered *during* the construction phase.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>Why Get It Through Stallion?</h2>
+          <ul class="diff-list">
+            <li><i class="fa-solid fa-search-location"></i> <div><h4>Risk Engineering Surveys</h4><p>Before binding large commercial properties, we bring in structural engineers to identify hazard fixes that will lower your premiums.</p></div></li>
+            <li><i class="fa-solid fa-handshake-angle"></i> <div><h4>Complex Claims Advocacy</h4><p>A factory fire results in a complex, high-value claim. We project-manage the entire adjuster investigation so you receive your payout faster.</p></div></li>
+            <li><i class="fa-solid fa-list-check"></i> <div><h4>Asset Valuation Guidance</h4><p>Under-insuring leads to "averaging" penalties at claim stage. We ensure your assets are correctly valued in current UGX to prevent shortfalls.</p></div></li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <h2>How to Get Covered</h2>
+          <div class="process-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <i class="fa-solid fa-clipboard-question"></i>
+              <h4>Inventory & Valuation</h4>
+              <p>You provide us with a schedule of the asset values to be covered.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <i class="fa-solid fa-scale-balanced"></i>
+              <h4>Market Placement</h4>
+              <p>We approach specialized underwriters like Old Mutual or Britam to negotiate terms.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <i class="fa-solid fa-file-invoice"></i>
+              <h4>Policy Review</h4>
+              <p>We finalize the binder and issue the active policy documents to your office.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Frequently Asked Questions</h2>
+          <div class="accordion-item">
+            <button class="accordion-btn">Is my landlord's insurance enough for my goods? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>No. A landlord's policy generally only covers the physical building (the walls, roof). If there is a fire or a burglary, your raw materials, stock, and furnishings are entirely your liability unless *you* have a contents policy.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">What is 'Business Interruption' cover? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>If a fire burns down your factory, standard property cover pays for the rebuild. However, rebuilding takes 8 months. Business Interruption covers your lost expected profits and ongoing fixed costs (like rent and salaries) during those 8 months.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">Are laptops and mobile phones covered? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>Often, portable electronic equipment requires an "All Risks" add-on, since they are frequently taken off the primary insured premises. We can easily bundle this for you.</p></div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Related Products</h2>
+          <div class="related-grid">
+            <a href="liability-insurance.html" class="related-card">
+              <i class="fa-solid fa-briefcase"></i> <div><strong>Liability Coverage</strong><br>Protect against slips and falls on your premises.</div>
+            </a>
+            <a href="motor-insurance.html" class="related-card">
+              <i class="fa-solid fa-car"></i> <div><strong>Fleet Insurance</strong><br>Protect the commercial vehicles that park at your property.</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar Form -->
+      <aside>
+        <div class="sidebar-widget">
+          <h3 style="margin-bottom: var(--sp-2);">Secure Your Assets</h3>
+          <p style="font-size: 0.9rem; margin-bottom: var(--sp-6);">Get an accurate valuation & quote today.</p>
+          <form id="sideForm">
+            <input type="hidden" id="prodType" value="Property">
+            <div class="form-group">
+              <label>Full Name or Company</label>
+              <input type="text" id="sfName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="sfPhone" class="form-control" placeholder="+256" required>
+            </div>
+            <div class="form-group">
+              <label>Property Type</label>
+              <select id="sfType" class="form-control" style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=\"%233D3D3D\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>') no-repeat right 12px center;">
+                <option>Commercial Unit (Office/Shop)</option>
+                <option>Industrial Warehouse/Factory</option>
+                <option>Residential Home</option>
+                <option>Under Construction (CAR)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Get Quick Quote</button>
+          </form>
+          
+          <div class="sidebar-trust">
+            <ul>
+              <li><i class="fa-solid fa-shield-halved"></i> Total Structural Protection</li>
+              <li><i class="fa-solid fa-scale-balanced"></i> Fair Valuations</li>
+              <li><i class="fa-solid fa-certificate"></i> IRAU Licensed Advisory</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+        </div>
+        <div>
+          <h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li></ul>
+        </div>
+        <div>
+          <h4>Our Products</h4><ul><li><a href="motor-insurance.html">Motor</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stallion Insurance Brokers Limited. Regulated by IRAU.</p>
+    </div>
+  </footer>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion-btn');
+    accordions.forEach(acc => { acc.addEventListener('click', function() { this.classList.toggle('active'); }); });
+
+    document.getElementById('sideForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = document.getElementById('sfName').value;
+      const t = document.getElementById('sfType').value;
+      const text = `Hello Stallion, my name is ${n}. I am looking to cover a ${t} and need a Property Insurance consultation.`;
+      window.location.href = `https://wa.me/256000000000?text=${encodeURIComponent(text)}`;
+    });
+  </script>
+</body>
+</html>

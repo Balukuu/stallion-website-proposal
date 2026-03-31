@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Life Insurance Uganda | Stallion Insurance Brokers</title>
+  <meta name="description" content="Secure your family's financial future in Uganda with Term Life, Whole Life, and Education policies from Stallion Insurance Brokers.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
+      --success: #1B7A3E; --danger: #D64045;
+      --neutral-100: #F7F8FA; --neutral-200: #E8EAF0;
+      --neutral-500: #6B7280; --neutral-700: #3D3D3D; --neutral-900: #111827; --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    p { margin-bottom: var(--sp-4); font-size: 1rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-16) 0; }
+    
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; border-bottom: 1px solid var(--neutral-200); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display:flex; flex-direction:column; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+
+    /* Hero */
+    .product-hero { padding: 160px 0 var(--sp-12); background: linear-gradient(135deg, #0A2342 0%, #173b66 100%); color: var(--white); text-align: center; }
+    .product-hero h1 { color: var(--white); margin-bottom: var(--sp-2); }
+    .hero-icon { font-size: 3.5rem; color: var(--white); margin-bottom: var(--sp-4); display: inline-block; padding: 24px; background: rgba(255,255,255,0.05); border-radius: 50%; border: 2px solid rgba(201,149,42,0.5); }
+    .breadcrumb { display: flex; justify-content: center; gap: 8px; color: var(--neutral-200); font-size: 0.9rem; margin-top: var(--sp-6); opacity: 0.8;}
+    .breadcrumb a { color: var(--accent); }
+
+    /* Main Grid Layout */
+    .layout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-12); margin-top: var(--sp-8); }
+    
+    /* Content Area */
+    .content-box { margin-bottom: var(--sp-12); }
+    .content-box h2 { border-bottom: 2px solid var(--accent-light); padding-bottom: 8px; margin-bottom: var(--sp-6); }
+
+    /* Coverage Grid */
+    .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+    .coverage-item { display: flex; gap: 16px; align-items: flex-start; background: var(--neutral-100); padding: var(--sp-6); border-radius: var(--radius-card); }
+    .coverage-item i { font-size: 1.5rem; color: #173b66; background: var(--white); padding: 12px; border-radius: 50%; box-shadow: var(--shadow-card); }
+    
+    /* Audience Box */
+    .audience-box { background: rgba(10,35,66,0.05); border-left: 4px solid var(--primary); padding: var(--sp-8); border-radius: 0 var(--radius-card) var(--radius-card) 0; margin-bottom: var(--sp-12); }
+    .audience-box h3 { color: var(--primary); display: flex; align-items: center; gap: 12px; }
+
+    /* Differentiators */
+    .diff-list { list-style: none; }
+    .diff-list li { padding: var(--sp-4); border: 1px solid var(--neutral-200); border-radius: var(--radius-card); margin-bottom: var(--sp-4); display: flex; gap: 16px; background: var(--white); }
+    .diff-list i { color: var(--accent); font-size: 1.5rem; margin-top: 4px; }
+
+    /* 3 Step Process */
+    .process-steps { display: flex; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-12); text-align: center; }
+    .step-card { flex: 1; padding: var(--sp-6); background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); position: relative; }
+    .step-number { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .step-card i { font-size: 2rem; color: #173b66; margin: var(--sp-4) 0; }
+
+    /* Related Products */
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+    .related-card { border: 1px solid var(--neutral-200); border-radius: var(--radius-card); padding: var(--sp-4); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
+    .related-card:hover { border-color: var(--accent); background: var(--neutral-100); }
+    .related-card i { font-size: 1.5rem; color: var(--primary); }
+
+    /* Sidebar Form */
+    .sidebar-widget { background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--sp-8); position: sticky; top: 100px; border-top: 4px solid var(--primary); }
+    .form-group { margin-bottom: var(--sp-4); }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+    .form-control { width: 100%; padding: 12px; border: 1px solid var(--neutral-200); border-radius: var(--radius-btn); font-family: var(--font-body); }
+    .sidebar-trust { margin-top: var(--sp-6); padding-top: var(--sp-6); border-top: 1px solid var(--neutral-200); }
+    .sidebar-trust ul li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.9rem; }
+    .sidebar-trust i { color: var(--success); }
+
+    /* Accordion */
+    .accordion-item { border-bottom: 1px solid var(--neutral-200); }
+    .accordion-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--sp-4) 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--primary); cursor: pointer; text-align: left; font-family: var(--font-body); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .accordion-content p { padding-bottom: var(--sp-4); color: var(--neutral-700); }
+    .accordion-btn.active + .accordion-content { max-height: 500px; }
+    .accordion-btn i { transition: 0.3s; color: var(--accent); }
+    .accordion-btn.active i { transform: rotate(180deg); }
+
+    /* Footer */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--sp-8); margin-bottom: var(--sp-8); }
+    .footer h4 { color: var(--white); font-family: var(--font-body); margin-bottom: var(--sp-4); }
+    .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: var(--sp-2); }
+    .footer ul li { margin-bottom: 8px; }
+    .footer-bottom { background: #071932; padding: var(--sp-4) 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media(max-width: 900px) {
+      .layout-grid, .coverage-grid { grid-template-columns: 1fr; }
+      .process-steps { flex-direction: column; }
+      .sidebar-widget { position: static; }
+      .nav-links, .nav-right .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products" class="active">Products</a></li>
+        <li><a href="claims.html">Claims</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <div class="container">
+      <div class="hero-icon"><i class="fa-solid fa-shield-heart"></i></div>
+      <h1>Life Insurance</h1>
+      <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.9;">Because your legacy in Uganda isn't just what you build, it's who you protect.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <a href="index.html#products">Products</a> &rsaquo; <span style="color:var(--white);">Life</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container layout-grid">
+      
+      <div class="main-content">
+        
+        <div class="content-box">
+          <h2>What is Life Insurance?</h2>
+          <p>Many Ugandans rely entirely on the National Social Security Fund (NSSF) or extended family networks to cover life’s worst contingencies. However, building independent financial security requires a guaranteed buffer.</p>
+          <p>Life Insurance provides a tax-free lump sum payment to your chosen beneficiaries in the event of your unforeseen demise, critical illness, or permanent disability. Whether you want to ensure your children can finish university or that your spouse is unburdened by debt, a life policy acts as a concrete promise of continued financial care.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>What It Covers</h2>
+          <div class="coverage-grid">
+            <div class="coverage-item">
+              <i class="fa-solid fa-umbrella"></i>
+              <div><h4>Term Life Cover</h4><p>Affordable protection for a specific period (e.g. 10 or 20 years) while raising dependents.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-infinity"></i>
+              <div><h4>Whole Life Cover</h4><p>Permanent protection that pays out regardless of when you pass away, building cash value over time.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <div><h4>Education Policy</h4><p>Guaranteed maturity payouts timed perfectly to cover your children’s high school or university fees in Uganda or abroad.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-wheelchair"></i>
+              <div><h4>Permanent Disability</h4><p>A lump sum payout if you suffer severe injuries that permanently stop you from earning a living.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-virus"></i>
+              <div><h4>Critical Illness</h4><p>A living benefit paid directly to you upon diagnosis of a major disease (cancer, heart attack, stroke).</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-people-roof"></i>
+              <div><h4>Group Life (Corporate)</h4><p>A multiple of annual salary paid to an employee's family if they pass away while in service.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="audience-box">
+          <h3><i class="fa-solid fa-children"></i> Who is this for?</h3>
+          <p><strong>Parents & Breadwinners:</strong> If someone relies on your income to survive, pay school fees, or eat, you need life insurance.<br><br>
+          <strong>Corporate Employers:</strong> A Group Life scheme is a highly affordable statutory benefit that dramatically boosts employee morale and loyalty in the competitive Kampala job market.<br><br>
+          <strong>Business Owners (Key Man Insurance):</strong> Protects a business against the financial shock of losing a crucial founder or executive.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>Why Get It Through Stallion?</h2>
+          <ul class="diff-list">
+            <li><i class="fa-solid fa-user-tie"></i> <div><h4>Utmost Discretion</h4><p>Life insurance deals with sensitive family and financial data. We maintain absolute confidentiality through our strict compliance protocols.</p></div></li>
+            <li><i class="fa-solid fa-scale-balanced"></i> <div><h4>Needs Analysis</h4><p>We don't push the most expensive policy. We calculate your debt, children's ages, and income to find your precise "coverage gap".</p></div></li>
+            <li><i class="fa-solid fa-file-signature"></i> <div><h4>Beneficiary Assistance</h4><p>If the worst happens, we assigned a dedicated liaison to help your grieving family navigate the claims process quickly, without aggressive underwriter pushback.</p></div></li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <h2>How to Get Covered</h2>
+          <div class="process-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <i class="fa-solid fa-calculator"></i>
+              <h4>Financial Audit</h4>
+              <p>We assess your goals to quote the correct capital sum insured.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <i class="fa-solid fa-notes-medical"></i>
+              <h4>Medical Check</h4>
+              <p>Depending on the sum, you may complete a simple medical exam at no cost to you.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <i class="fa-solid fa-file-contract"></i>
+              <h4>Policy Issued</h4>
+              <p>Your beneficiaries are recorded and coverage commences immediately upon deposit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Frequently Asked Questions</h2>
+          <div class="accordion-item">
+            <button class="accordion-btn">Isn't NSSF enough for my family? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>NSSF acts as a retirement savings fund. The survivors' benefit is restricted strictly to what you have already saved. Life insurance pays out the *full guaranteed sum*, even if you pass away one month into the policy.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">What if I miss a premium payment? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>Most life policies offer a "grace period" of 30 days. Beyond that, the policy may lapse. However, whole life and education policies accrue "cash value" which can be used to keep the policy active during tough financial times.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">How do Education policies actually work? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>You pay premiums while your child is young. The policy matures when they reach university age, guaranteeing a payout for fees. If you pass away prematurely, the insurer stops asking for premiums but still guarantees the final payout for your child.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">Can I change my beneficiaries? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>Yes. Life changes rapidly. As your broker, we facilitate any updates to your beneficiary list (e.g. births, marriages) completely free of charge.</p></div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Related Products</h2>
+          <div class="related-grid">
+            <a href="medical-insurance.html" class="related-card">
+              <i class="fa-solid fa-heart-pulse"></i> <div><strong>Medical Cover</strong><br>For health emergencies while you're still living.</div>
+            </a>
+            <a href="property-insurance.html" class="related-card">
+              <i class="fa-solid fa-house"></i> <div><strong>Property Cover</strong><br>Protect the home your family lives in.</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar Form -->
+      <aside>
+        <div class="sidebar-widget">
+          <h3 style="margin-bottom: var(--sp-2);">Quick Life Quote</h3>
+          <p style="font-size: 0.9rem; margin-bottom: var(--sp-6);">Find out how affordable true peace of mind is.</p>
+          <form id="sideForm">
+            <input type="hidden" id="prodType" value="Life">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="sfName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="sfPhone" class="form-control" placeholder="+256" required>
+            </div>
+            <div class="form-group">
+              <label>Policy Interest</label>
+              <select id="sfType" class="form-control" style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=\"%233D3D3D\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>') no-repeat right 12px center;">
+                <option>Education Policy</option>
+                <option>Personal Life Cover</option>
+                <option>Corporate Group Life</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Get Quick Quote</button>
+          </form>
+          
+          <div class="sidebar-trust">
+            <ul>
+              <li><i class="fa-solid fa-lock"></i> 100% Confidential</li>
+              <li><i class="fa-solid fa-money-bill-transfer"></i> Payout Guaranteed</li>
+              <li><i class="fa-solid fa-shield-halved"></i> IRAU Licensed Advisory</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+        </div>
+        <div>
+          <h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li></ul>
+        </div>
+        <div>
+          <h4>Our Products</h4><ul><li><a href="motor-insurance.html">Motor</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stallion Insurance Brokers Limited. Regulated by IRAU.</p>
+    </div>
+  </footer>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion-btn');
+    accordions.forEach(acc => { acc.addEventListener('click', function() { this.classList.toggle('active'); }); });
+
+    document.getElementById('sideForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = document.getElementById('sfName').value;
+      const t = document.getElementById('sfType').value;
+      const text = `Hello Stallion, my name is ${n}. I am looking for a Life Insurance quote specifically regarding a ${t}.`;
+      window.location.href = `https://wa.me/256000000000?text=${encodeURIComponent(text)}`;
+    });
+  </script>
+</body>
+</html>

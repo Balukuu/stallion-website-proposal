@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Make a Claim | Stallion Insurance Brokers</title>
+  <meta name="description" content="A simple, fast, and transparent claims process. Find out what to do immediately after an incident and how Stallion Insurance Brokers advocates for you.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
+      --success: #1B7A3E; --danger: #D64045;
+      --neutral-100: #F7F8FA; --neutral-200: #E8EAF0;
+      --neutral-500: #6B7280; --neutral-700: #3D3D3D; --neutral-900: #111827; --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--neutral-100); overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    p { margin-bottom: var(--sp-4); font-size: 1rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-12) 0; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; border-bottom: 1px solid var(--neutral-200); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display:flex; flex-direction:column; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+
+    /* Hero */
+    .claims-hero { padding: 160px 0 var(--sp-12); background: linear-gradient(135deg, var(--white) 0%, rgba(201,149,42,0.1) 100%); text-align: center; border-bottom: 1px solid var(--neutral-200); }
+    .claims-hero h1 { color: var(--primary); margin-bottom: var(--sp-2); }
+    .hero-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: var(--sp-4); display: inline-block; padding: 24px; background: var(--white); border-radius: 50%; box-shadow: var(--shadow-card); }
+    
+    /* Urgent Banner */
+    .urgent-banner { background: var(--danger); color: var(--white); padding: var(--sp-8); border-radius: var(--radius-card); box-shadow: var(--shadow-card); margin-top: -40px; position: relative; z-index: 10; display: flex; align-items: center; gap: var(--sp-8); }
+    .urgent-icon { font-size: 4rem; color: rgba(255,255,255,0.8); }
+    .urgent-content h2 { color: var(--white); margin-bottom: 8px; }
+    .urgent-content p { font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--sp-4); }
+    .urgent-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-white { background: var(--white); color: var(--danger); }
+    .btn-white:hover { background: #fee; }
+
+    /* 4-Step Process */
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); margin-top: var(--sp-12); position: relative; }
+    .process-grid::before { content: ''; position: absolute; top: 40px; left: 10%; width: 80%; height: 2px; background: var(--neutral-200); z-index: 1; border-top: 2px dashed var(--accent); }
+    .step-card { background: var(--white); padding: var(--sp-6); border-radius: var(--radius-card); text-align: center; position: relative; z-index: 2; box-shadow: var(--shadow-card); }
+    .step-number { width: 40px; height: 40px; background: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: bold; margin: 0 auto var(--sp-4); border: 4px solid var(--white); box-shadow: 0 0 0 2px var(--accent); }
+    .step-card h4 { margin-top: var(--sp-4); }
+
+    /* Document Tabs */
+    .tabs-section { background: var(--white); padding: var(--sp-8); border-radius: var(--radius-card); box-shadow: var(--shadow-card); margin-bottom: var(--sp-12); }
+    .tabs-header { display: flex; border-bottom: 2px solid var(--neutral-200); margin-bottom: var(--sp-6); overflow-x: auto; scrollbar-width: none; }
+    .tab-btn { padding: var(--sp-2) var(--sp-6); background: none; border: none; font-family: var(--font-heading); font-size: 1.2rem; color: var(--neutral-500); cursor: pointer; border-bottom: 4px solid transparent; transition: 0.3s; white-space: nowrap; }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--accent); font-weight: 700; }
+    .tab-content { display: none; animation: fadeIn 0.4s; }
+    .tab-content.active { display: block; }
+    .doc-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+    .doc-list li { display: flex; gap: 12px; align-items: flex-start; padding: 12px; background: var(--neutral-100); border-radius: var(--radius-btn); }
+    .doc-list i { color: var(--accent); margin-top: 4px; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Forms Download */
+    .download-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-6); }
+    .download-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-card); padding: var(--sp-6); text-align: center; transition: 0.3s; }
+    .download-card:hover { border-color: var(--accent); box-shadow: var(--shadow-hover); }
+    .download-card i { font-size: 2.5rem; color: var(--danger); margin-bottom: var(--sp-4); }
+    .download-card a { display: inline-block; margin-top: var(--sp-4); font-weight: 600; color: var(--primary); text-decoration: underline; }
+
+    /* Accordion */
+    .accordion-box { background: var(--white); border-radius: var(--radius-card); padding: var(--sp-6); box-shadow: var(--shadow-card); }
+    .accordion-item { border-bottom: 1px solid var(--neutral-200); }
+    .accordion-item:last-child { border-bottom: none; }
+    .accordion-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--sp-4) 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--primary); cursor: pointer; text-align: left; font-family: var(--font-body); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .accordion-content p { padding-bottom: var(--sp-4); color: var(--neutral-700); }
+    .accordion-btn.active + .accordion-content { max-height: 500px; }
+    .accordion-btn i { transition: 0.3s; color: var(--accent); }
+    .accordion-btn.active i { transform: rotate(180deg); }
+
+    /* Footer */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; margin-top: var(--sp-16);}
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--sp-8); margin-bottom: var(--sp-8); }
+    .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: var(--sp-2); }
+    .footer-bottom { background: #071932; padding: var(--sp-4) 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media(max-width: 900px) {
+      .process-grid::before { display: none; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .urgent-banner { flex-direction: column; text-align: center; }
+      .doc-list { grid-template-columns: 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+      .nav-links, .nav-right .btn { display: none; }
+    }
+    @media(max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="claims.html" class="active">Claims</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="claims-hero">
+    <div class="container">
+      <div class="hero-icon"><i class="fa-solid fa-file-signature"></i></div>
+      <h1>Making a Claim is Simple</h1>
+      <p style="font-size:1.2rem; max-width:600px; margin:0 auto; color:var(--neutral-700);">We don't settle for "It's being processed." Our dedicated team advocates fiercely to ensure your claim is paid out fairly and swiftly.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      
+      <!-- Urgent Action Box -->
+      <div class="urgent-banner">
+        <div class="urgent-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="urgent-content">
+          <h2>What To Do Immediately After an Incident</h2>
+          <p>If you've just experienced an accident, theft, or fire in Uganda, <strong>do not admit liability or sign any third-party compensation agreements</strong> before speaking to us.</p>
+          <ul style="list-style: disc; margin-left: 20px; font-size: 1.1rem; margin-bottom: 24px;">
+            <li>Ensure the safety of all people involved first.</li>
+            <li>Report strictly to the Uganda Police and obtain a Police Report/Reference.</li>
+            <li>Take clear photographs of all damages and the general scene.</li>
+            <li>Contact the Stallion Emergency Line immediately.</li>
+          </ul>
+          <div class="urgent-actions">
+            <a href="tel:+256000000999" class="btn btn-white btn-pill"><i class="fa-solid fa-phone" style="margin-right:8px;"></i> Call 24/7 Emergency Line</a>
+            <a href="https://wa.me/256000000999" class="btn btn-white btn-pill" style="color:var(--whatsapp);"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Emergency </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Step Process -->
+      <div style="text-align: center; margin-top: var(--sp-16);">
+        <h2>Our 4-Step Claims Process</h2>
+        <p>We handle the heavy lifting. Here is how it works once you notify us.</p>
+        
+        <div class="process-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <i class="fa-solid fa-mobile-screen-button" style="font-size: 2.5rem; color: var(--primary); margin: 16px 0;"></i>
+            <h4>Notification</h4>
+            <p style="font-size: 0.9rem; margin-top: 8px;">You notify us via phone, WhatsApp, or email immediately after the incident providing brief initial details.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <i class="fa-solid fa-file-import" style="font-size: 2.5rem; color: var(--primary); margin: 16px 0;"></i>
+            <h4>Documentation</h4>
+            <p style="font-size: 0.9rem; margin-top: 8px;">Within 48 hours, you submit the completed claim form alongside required evidence (Police Report, Medical Bills, etc.).</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <i class="fa-solid fa-user-check" style="font-size: 2.5rem; color: var(--primary); margin: 16px 0;"></i>
+            <h4>Assessment</h4>
+            <p style="font-size: 0.9rem; margin-top: 8px;">We schedule an underwriter's loss adjuster to assess the vehicle/property and negotiate the repair costs.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <i class="fa-solid fa-money-check-dollar" style="font-size: 2.5rem; color: var(--success); margin: 16px 0;"></i>
+            <h4>Settlement</h4>
+            <p style="font-size: 0.9rem; margin-top: 8px;">The insurer issues the Discharge Voucher. Once signed, your repair begins or funds are transferred directly.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Checklists (Tabs) -->
+      <div class="tabs-section" style="margin-top: var(--sp-16);">
+        <h2 style="text-align: center; margin-bottom: var(--sp-8);">Documents Required Checklist</h2>
+        
+        <div class="tabs-header">
+          <button class="tab-btn active" onclick="openTab('motor')">Motor Claims</button>
+          <button class="tab-btn" onclick="openTab('medical')">Medical Reimbursement</button>
+          <button class="tab-btn" onclick="openTab('property')">Property & Fire</button>
+        </div>
+
+        <div id="motor" class="tab-content active">
+          <p style="margin-bottom: var(--sp-4);">To avoid delays in your motor claim, please prepare the following strictly:</p>
+          <ul class="doc-list">
+            <li><i class="fa-solid fa-check"></i> <div>Duly completed Motor Claim Form (signed by insured).</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Original Uganda Police Accident Report.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Clear copy of the driver's current Driving Permit.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Copy of the vehicle Log Book (Registration Book).</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Quotation/Pro-forma Invoice from an approved garage.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Clear photographs showing the damage and the number plate.</div></li>
+          </ul>
+        </div>
+
+        <div id="medical" class="tab-content">
+          <p style="margin-bottom: var(--sp-4);">If you paid out of pocket at an out-of-network hospital in Uganda, provide:</p>
+          <ul class="doc-list">
+            <li><i class="fa-solid fa-check"></i> <div>Duly completed Medical Reimbursement Form.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Original itemized hospital invoices and payment receipts.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Doctor's prescription and pharmacy receipts.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Diagnostic/Lab test results or referring doctor’s notes.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Copy of your Medical Insurance Card.</div></li>
+          </ul>
+        </div>
+
+        <div id="property" class="tab-content">
+          <p style="margin-bottom: var(--sp-4);">For fire, theft, or flood damage to buildings and contents:</p>
+          <ul class="doc-list">
+            <li><i class="fa-solid fa-check"></i> <div>Duly completed Fire/Burglary Claim Form.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Original Police Report (mandatory for theft/malicious damage).</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Fire Brigade Report (if fire was involved).</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Purchase receipts, invoices, or valuations for stolen/damaged items.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Photographic evidence of the damaged premises.</div></li>
+            <li><i class="fa-solid fa-check"></i> <div>Repair estimates from certified contractors.</div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="accordion-box" style="margin-top: var(--sp-12);">
+        <h2 style="text-align: center; margin-bottom: var(--sp-6);">Claims Frequently Asked Questions</h2>
+        
+        <div class="accordion-item">
+          <button class="accordion-btn">How long does a motor claim take to settle? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="accordion-content"><p>Once all documents (especially the Police Report) are submitted, an assessor is assigned within 24 hours. Minor scratch/dent repairs can be approved in 3-5 days. Total write-offs take roughly 14-21 days for full financial settlement.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn">Should I repair my car before the assessor sees it? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="accordion-content"><p><strong>Absolutely not.</strong> Repairing your vehicle before an authorized assessor from the insurance company inspects it will almost certainly result in your claim being immediately repudiated (rejected).</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn">The third-party admitted fault and offered cash. Should I take it? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="accordion-content"><p>Be very careful. Cash offers on the scene are often vastly lower than the true cost of hidden mechanical repairs. Additionally, accepting private compensation can void your right to claim through your insurer if the other party's money runs out. Always notify us first.</p></div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-btn">What is an "Excess"? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="accordion-content"><p>An excess (or deductible) is the first portion of a claim which you, the policyholder, are required to bear. For example, if your excess is UGX 200,000 and the repair bill is UGX 1,000,000, the insurer will pay the garage UGX 800,000. It prevents insurers from being burdened with tiny, administrative-heavy claims.</p></div>
+        </div>
+      </div>
+
+      <!-- Downloads -->
+      <div style="margin-top: var(--sp-16);">
+        <h2 style="text-align: center; margin-bottom: var(--sp-6);">Download Claim Forms</h2>
+        <div class="download-grid">
+          <div class="download-card">
+            <i class="fa-regular fa-file-pdf"></i>
+            <h4>Motor Claim Form</h4>
+            <p style="font-size: 0.9rem;">Standard form for all comprehensive motor insurers.</p>
+            <a href="#">Download PDF <i class="fa-solid fa-download"></i></a>
+          </div>
+          <div class="download-card">
+            <i class="fa-regular fa-file-pdf"></i>
+            <h4>Medical Reimbursement</h4>
+            <p style="font-size: 0.9rem;">For out-of-pocket hospital expenses.</p>
+            <a href="#">Download PDF <i class="fa-solid fa-download"></i></a>
+          </div>
+          <div class="download-card">
+            <i class="fa-regular fa-file-pdf"></i>
+            <h4>General Property Claim</h4>
+            <p style="font-size: 0.9rem;">For fire, flooding, and burglary claims.</p>
+            <a href="#">Download PDF <i class="fa-solid fa-download"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+        </div>
+        <div>
+          <h4 style="color:white; margin-bottom: 16px;">Quick Links</h4><ul style="list-style:none;"><li><a href="index.html" style="color:#A0ABC0;">Home</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stallion Insurance Brokers Limited. Regulated by IRAU.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Tab Logic
+    function openTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    // Accordion Logic
+    const accordions = document.querySelectorAll('.accordion-btn');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', function() {
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | Stallion Insurance Brokers Uganda</title>
+  <meta name="description" content="Learn about Stallion Insurance Brokers, our founding in Uganda, our mission, vision, and the expert team dedicated to your financial protection and risk management.">
+  <link rel="canonical" href="https://stallion.co.ug/about.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342;
+      --accent: #C9952A;
+      --accent-light: #F5E6C8;
+      --success: #1B7A3E;
+      --danger: #D64045;
+      --neutral-100: #F7F8FA;
+      --neutral-200: #E8EAF0;
+      --neutral-700: #3D3D3D;
+      --neutral-900: #111827;
+      --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    p { margin-bottom: var(--sp-4); font-size: 1rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    ul { list-style: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-24) 0; }
+    .section-light { background-color: var(--neutral-100); }
+    .section-dark { background-color: var(--primary); color: var(--white); }
+    .section-dark h2, .section-dark h3 { color: var(--accent); }
+
+    /* Buttons */
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: #b58322; transform: translateY(-2px); }
+    .btn-whatsapp { background: var(--success); color: var(--white); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; transition: 0.3s; border-bottom: 1px solid var(--neutral-200); }
+    .navbar.scrolled { padding: var(--sp-2) 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display: flex; flex-direction: column; transition: transform 0.3s; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+    .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+    .mobile-drawer { position: fixed; top: 0; left: 0; width: 100%; height: 0; background: var(--primary); overflow: hidden; transition: 0.4s; z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .mobile-drawer.active { height: 100vh; }
+    .mobile-drawer a { color: var(--white); font-size: 1.5rem; font-family: var(--font-heading); margin: var(--sp-4) 0; opacity: 0; transform: translateY(20px); transition: 0.3s; }
+    .mobile-drawer.active a { opacity: 1; transform: translateY(0); }
+
+    /* Page Hero */
+    .page-hero { padding: 160px 0 var(--sp-16) 0; background: linear-gradient(135deg, var(--primary) 0%, #0d315c 100%); color: var(--white); text-align: center; }
+    .page-hero h1 { color: var(--white); }
+    .breadcrumb { display: flex; justify-content: center; gap: 8px; color: var(--neutral-200); font-size: 0.9rem; margin-top: var(--sp-4); }
+    .breadcrumb a { color: var(--accent); }
+
+    /* Our Story */
+    .story-split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-12); align-items: center; }
+    .story-img { border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; }
+    .story-content h2 { margin-bottom: var(--sp-4); }
+    .story-content p { color: var(--neutral-700); font-size: 1.1rem; margin-bottom: var(--sp-4); line-height: 1.8; }
+
+    /* Mission/Vision/Values */
+    .mvv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-8); }
+    .mvv-card { background: var(--white); padding: var(--sp-8); border-radius: var(--radius-card); box-shadow: var(--shadow-card); text-align: center; border-bottom: 4px solid var(--accent); }
+    .mvv-card i { font-size: 3rem; color: var(--primary); margin-bottom: var(--sp-6); }
+
+    /* Team */
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-8); margin-top: var(--sp-12); }
+    .team-card { background: var(--white); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); transition: transform 0.3s; text-align: center; }
+    .team-card:hover { transform: translateY(-10px); }
+    .team-img { width: 100%; height: 280px; background: var(--neutral-200); object-fit: cover; }
+    .team-info { padding: var(--sp-6); }
+    .team-info h4 { margin-bottom: 4px; }
+    .team-info p { font-size: 0.9rem; color: var(--accent); font-weight: 600; margin-bottom: var(--sp-4); }
+    .team-info a { color: var(--neutral-500); font-size: 1.2rem; }
+    .team-info a:hover { color: #0077b5; } /* LinkedIn Blue */
+
+    /* IRAU Accreditation */
+    .accreditation { background: var(--success); color: var(--white); padding: var(--sp-16) 0; text-align: center; }
+    .accreditation i { font-size: 4rem; color: var(--white); margin-bottom: var(--sp-6); opacity: 0.9; }
+    .accreditation h2 { color: var(--white); margin-bottom: var(--sp-4); }
+    .accreditation p { max-width: 800px; margin: 0 auto var(--sp-8); font-size: 1.2rem; line-height: 1.6; }
+
+    /* Trust Strip */
+    .trust-strip { background: var(--accent); padding: var(--sp-12) 0; color: var(--white); }
+    .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: var(--sp-4); }
+    .trust-grid .counter { font-size: 2.5rem; font-family: var(--font-heading); font-weight: 700; margin-bottom: var(--sp-2); }
+    .trust-grid .label { font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* Bottom CTA */
+    .cta-section { background: var(--neutral-100); text-align: center; padding: var(--sp-24) 0; }
+    .cta-section h2 { margin-bottom: var(--sp-6); }
+
+    /* Footer / Shared */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-16) 0 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--sp-8); margin-bottom: var(--sp-12); }
+    .footer h4 { color: var(--white); font-family: var(--font-body); font-size: 1.1rem; margin-bottom: var(--sp-6); }
+    .footer ul li { margin-bottom: var(--sp-2); }
+    .footer ul a { color: #A0ABC0; }
+    .footer ul a:hover { color: var(--accent); padding-left: 4px; }
+    .footer-logo { font-family: var(--font-heading); font-size: 1.8rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: var(--sp-4); }
+    .footer-logo span { color: var(--accent); }
+    .social-icons a { display: inline-flex; width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.05); color: var(--white); align-items: center; justify-content: center; transition: 0.3s; margin-right: 8px; }
+    .social-icons a:hover { background: var(--accent); }
+    .footer-bottom { background: #071932; padding: var(--sp-6) 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; width: 60px; height: 60px; background: var(--whatsapp); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 12px rgba(37,211,102,0.4); z-index: 100; transition: 0.3s; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+    
+    .mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 99; }
+    .mobile-bottom-bar a { flex: 1; text-align: center; padding: 12px 0; color: var(--neutral-700); font-weight: 600; font-size: 0.85rem; display: flex; flex-direction: column; align-items: center; gap: 4px; border-right: 1px solid var(--neutral-200); }
+    
+    @media (max-width: 992px) {
+      .story-split, .mvv-grid, .team-grid { grid-template-columns: 1fr; }
+      .story-img { order: -1; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .trust-grid { grid-template-columns: repeat(2, 1fr); gap: var(--sp-8); }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-right .btn { display: none; }
+      .mobile-toggle { display: block; }
+      .footer-grid, .team-grid, .trust-grid { grid-template-columns: 1fr; }
+      .mobile-bottom-bar { display: flex; }
+      body { padding-bottom: 60px; }
+      .whatsapp-float { bottom: 84px; right: 16px; width: 50px; height: 50px; font-size: 24px; }
+      .page-hero { padding-top: 120px; }
+    }
+    
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" style="color:var(--accent)">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="claims.html">Claims</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+        <i class="fa-solid fa-bars mobile-toggle" id="mobileToggle"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <i class="fa-solid fa-times mobile-toggle" style="position:absolute; top:24px; right:24px; color:white;" id="closeDrawer"></i>
+    <a href="index.html">Home</a><a href="about.html">About Us</a><a href="index.html#products">Our Products</a><a href="claims.html">Make a Claim</a><a href="resources.html">Resources</a><a href="contact.html">Contact Us</a><a href="get-a-quote.html" class="btn btn-primary btn-pill" style="margin-top: 24px;">Get a Quote</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="fade-up">About Stallion Insurance Brokers</h1>
+      <div class="breadcrumb fade-up">
+        <a href="index.html">Home</a> &rsaquo; <span>About Us</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section">
+    <div class="container story-split">
+      <div class="story-content fade-up">
+        <h2>Our Ugandan Heritage & East African Vision</h2>
+        <p>Founded right here in Kampala, Uganda, Stallion Insurance Brokers Limited emerged from a distinct need: East African families and businesses required an insurance advocate who truly understood their local realities.</p>
+        <p>We saw that insurance was often overly complex and slow to settle claims. Since our inception, we have championed a <strong>client-first philosophy</strong>, shifting the balance of power from the massive underwriters directly back to you, the policyholder.</p>
+        <p>Today, as an officially licensed broker by the Insurance Regulatory Authority of Uganda (IRAU), we negotiate, secure, and manage thousands of policies annually, serving everyone from boda-boda fleet owners and commercial farmers to enterprise healthcare networks across the nation.</p>
+      </div>
+      <div class="story-img fade-up">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Professionals meeting in a Kampala office">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Vision Values -->
+  <section class="section section-light">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: var(--sp-12);" class="fade-up">
+        <h2>What Drives Us Forward</h2>
+      </div>
+      <div class="mvv-grid">
+        <div class="mvv-card fade-up">
+          <i class="fa-solid fa-bullseye"></i>
+          <h3>Our Mission</h3>
+          <p>To provide bespoke, reliable, and prompt risk management advisory services that protect the financial ambitions of our clients across Uganda and East Africa.</p>
+        </div>
+        <div class="mvv-card fade-up" style="transition-delay: 0.1s">
+          <i class="fa-regular fa-eye"></i>
+          <h3>Our Vision</h3>
+          <p>To universally be recognized as Uganda's preferred provider of risk management, pioneering accessible and trustworthy insurance solutions for every sector.</p>
+        </div>
+        <div class="mvv-card fade-up" style="transition-delay: 0.2s">
+          <i class="fa-solid fa-handshake"></i>
+          <h3>Our Values</h3>
+          <p>We anchor our daily operations in total Integrity, continuous Client-Centric Innovation, Transparency in claims, and an unwavering commitment to Professional Excellence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IRAU Accreditation -->
+  <section class="accreditation">
+    <div class="container fade-up">
+      <i class="fa-solid fa-shield-halved"></i>
+      <h2>Regulated by the IRAU</h2>
+      <p>Stallion Insurance Brokers operates under the strict regulations of the Insurance Regulatory Authority of Uganda. What does this mean for you? It guarantees that your premiums are handled securely, your claims are legally protected, and our advisory services meet the highest national compliance and ethical standards.</p>
+      <a href="get-a-quote.html" class="btn btn-secondary btn-pill" style="border-color:var(--white); color:var(--white);">Verify Our Credentials</a>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: var(--sp-12);" class="fade-up">
+        <h2>Meet The Advisory Team</h2>
+        <p style="max-width: 600px; margin: 0 auto;">Combining decades of industry experience in the East African market to deliver you the sharpest insurance insights.</p>
+      </div>
+      <div class="team-grid">
+        <!-- Team 1 -->
+        <div class="team-card fade-up">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Executive Director" class="team-img">
+          <div class="team-info">
+            <h4>Michael Kintu</h4>
+            <p>Managing Director</p>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <!-- Team 2 -->
+        <div class="team-card fade-up" style="transition-delay:0.1s">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Operations Manager" class="team-img">
+          <div class="team-info">
+            <h4>Grace Nanyonjo</h4>
+            <p>Head of Claims</p>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <!-- Team 3 -->
+        <div class="team-card fade-up" style="transition-delay:0.2s">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400" alt="Commercial Manager" class="team-img">
+          <div class="team-info">
+            <h4>Robert Ochieng</h4>
+            <p>Commercial Accounts Man.</p>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+        <!-- Team 4 -->
+        <div class="team-card fade-up" style="transition-delay:0.3s">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" alt="Retail Manager" class="team-img">
+          <div class="team-info">
+            <h4>Sarah Businge</h4>
+            <p>Retail & SME Risk Advisor</p>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Strip (Animated Counters) -->
+  <section class="trust-strip" id="trustSection">
+    <div class="container">
+      <div class="trust-grid">
+        <div><div class="counter" data-target="20">0</div><div class="label">Years Experience</div></div>
+        <div><div class="counter" data-target="10000" data-plus="true">0</div><div class="label">Satisfied Clients</div></div>
+        <div><div class="counter" data-target="15" data-plus="true">0</div><div class="label">Insurance Partners</div></div>
+        <div><div class="counter" data-target="98" data-percent="true">0</div><div class="label">Claims Success Rate</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="container fade-up">
+      <h2>Ready to Get Protected?</h2>
+      <p style="margin-bottom: var(--sp-8);">Join thousands of Ugandans who trust Stallion Insurance Brokers with their financial safety.</p>
+      <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+          <p style="font-size:0.9rem; margin-bottom: var(--sp-4);">Uganda's preferred provider of risk management and insurance advisory services.</p>
+          <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a><a href="#"><i class="fa-brands fa-linkedin-in"></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="claims.html">Make a Claim</a></li><li><a href="resources.html">Resources & Blog</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+        </div>
+        <div>
+          <h4>Our Products</h4>
+          <ul><li><a href="motor-insurance.html">Motor</a></li><li><a href="medical-insurance.html">Medical</a></li><li><a href="life-insurance.html">Life</a></li><li><a href="property-insurance.html">Property</a></li><li><a href="liability-insurance.html">Liability</a></li><li><a href="agriculture-insurance.html">Agriculture</a></li></ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <ul style="opacity: 0.9;">
+            <li style="display:flex;gap:12px;"><i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> Kampala, Uganda</li>
+            <li style="display:flex;gap:12px;"><i class="fa-solid fa-phone" style="color:var(--accent);"></i> <a href="tel:+256000000000">+256 000 000 000</a></li>
+            <li style="display:flex;gap:12px;"><i class="fa-solid fa-envelope" style="color:var(--accent);"></i> <a href="mailto:info@stallion.co.ug">info@stallion.co.ug</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p style="color:var(--white); font-weight:bold; margin-bottom:8px;"><i class="fa-solid fa-shield-check" style="color:var(--accent);"></i> Regulated by the Insurance Regulatory Authority of Uganda</p>
+        <p>&copy; 2026 Stallion Insurance Brokers Limited. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/256000000000" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+  <div class="mobile-bottom-bar">
+    <a href="tel:+256000000000"><i class="fa-solid fa-phone"></i> Call</a>
+    <a href="https://wa.me/256000000000"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <a href="get-a-quote.html"><i class="fa-solid fa-clipboard-list"></i> Get Quote</a>
+  </div>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    const mobileToggle = document.getElementById('mobileToggle');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const drawer = document.getElementById('mobileDrawer');
+    mobileToggle.addEventListener('click', () => drawer.classList.add('active'));
+    closeDrawer.addEventListener('click', () => drawer.classList.remove('active'));
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    let counted = false;
+    const counterObserver = new IntersectionObserver((entries) => {
+      if(entries[0].isIntersecting && !counted) {
+        counted = true;
+        document.querySelectorAll('.counter').forEach(el => {
+          const target = +el.getAttribute('data-target');
+          const isPlus = el.getAttribute('data-plus');
+          const isPercent = el.getAttribute('data-percent');
+          let count = 0; const speed = target / 50; 
+          const updateCount = () => {
+            count += speed;
+            if(count < target) { el.innerText = Math.ceil(count); setTimeout(updateCount, 40); } 
+            else { el.innerText = target + (isPlus ? '+' : isPercent ? '%' : ''); }
+          };
+          updateCount();
+        });
+      }
+    });
+    const trustSection = document.getElementById('trustSection');
+    if(trustSection) counterObserver.observe(trustSection);
+  </script>
+</body>
+</html>

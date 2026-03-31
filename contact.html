@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Stallion Insurance Brokers</title>
+  <meta name="description" content="Get in touch with Stallion Insurance Brokers in Kampala, Uganda for your bespoke insurance quote or emergency claims assistance.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
+      --success: #1B7A3E; --danger: #D64045;
+      --neutral-100: #F7F8FA; --neutral-200: #E8EAF0;
+      --neutral-700: #3D3D3D; --neutral-900: #111827; --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    ul { list-style: none; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-24) 0; }
+    .section-light { background-color: var(--neutral-100); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; border-bottom: 1px solid var(--neutral-200); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display: flex; flex-direction: column; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+
+    /* Hero */
+    .page-hero { padding: 180px 0 var(--sp-12) 0; background: linear-gradient(135deg, var(--neutral-100) 0%, #fff 100%); text-align: center; border-bottom: 1px solid var(--neutral-200); }
+    .breadcrumb { display: flex; justify-content: center; gap: 8px; color: var(--neutral-500); font-size: 0.9rem; margin-top: var(--sp-4); }
+
+    /* Contact Layout */
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); }
+    
+    /* Contact Details Card */
+    .contact-details { background: var(--primary); color: var(--white); padding: var(--sp-12); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+    .contact-details h3 { color: var(--accent); margin-bottom: var(--sp-8); }
+    .contact-item { display: flex; gap: var(--sp-4); margin-bottom: var(--sp-8); align-items: flex-start; }
+    .contact-item i { font-size: 1.5rem; color: var(--accent); margin-top: 4px; }
+    .contact-item h4 { color: var(--white); margin-bottom: 4px; font-family: var(--font-body); }
+    .contact-item p, .contact-item a { color: var(--neutral-200); font-size: 1rem; }
+    .social-row { display: flex; gap: var(--sp-4); margin-top: var(--sp-8); border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--sp-8); }
+    .social-row a { width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,0.1); color: var(--white); display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .social-row a:hover { background: var(--accent); }
+
+    /* General Form */
+    .form-box h3 { margin-bottom: var(--sp-2); }
+    .form-box p { margin-bottom: var(--sp-8); color: var(--neutral-500); }
+    .form-group { margin-bottom: var(--sp-6); }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: var(--neutral-900); }
+    .form-control { width: 100%; padding: 16px; border: 1px solid var(--neutral-200); border-radius: var(--radius-btn); font-family: var(--font-body); font-size: 1rem; background: var(--neutral-100); }
+    .form-control:focus { outline: none; border-color: var(--accent); background: var(--white); }
+    textarea.form-control { min-height: 150px; resize: vertical; }
+
+    /* Emergency Banner */
+    .emergency-banner { background: var(--danger); color: var(--white); padding: var(--sp-8) 0; text-align: center; }
+    .emergency-banner h2 { color: var(--white); margin-bottom: var(--sp-4); }
+    .btn-white { background: var(--white); color: var(--danger); }
+
+    /* Map */
+    .map-container { width: 100%; height: 500px; display: block; }
+
+    /* Footer */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; }
+    .footer-bottom { background: #071932; padding: var(--sp-6) 0; text-align: center; color: var(--white); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media(max-width: 900px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .nav-links, .nav-right .btn { display: none; }
+      .mobile-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="claims.html">Claims</a></li>
+        <li><a href="contact.html" style="color:var(--accent);">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+        <i class="fa-solid fa-bars mobile-toggle"></i>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <span>Contact Us</span></div>
+      <p style="margin-top:var(--sp-4); color:var(--neutral-700); max-width: 600px; margin-left:auto; margin-right:auto;">Whether you need a bespoke corporate quote or personal coverage advice, our Ugandan-based team is ready to assist.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form & Details -->
+  <section class="section">
+    <div class="container contact-layout">
+      <!-- Info Card -->
+      <div class="contact-details">
+        <h3>Contact Information</h3>
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <h4>Head Office</h4>
+            <p>123 Business Avenue<br>Kampala, Uganda<br>East Africa</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <div>
+            <h4>Direct Lines</h4>
+            <p><a href="tel:+256000000000">+256 000 000 000</a><br><a href="tel:+256000000001">+256 000 000 001</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <h4>Email Us</h4>
+            <p><a href="mailto:info@stallion.co.ug">info@stallion.co.ug</a><br><a href="mailto:quotes@stallion.co.ug">quotes@stallion.co.ug</a></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <h4>Business Hours</h4>
+            <p>Mon - Fri: 8:00 AM - 5:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+          </div>
+        </div>
+        <div class="social-row">
+          <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <!-- Form Box -->
+      <div class="form-box">
+        <h3>Send us a message</h3>
+        <p>Fill out the form below and we will get back to you within 24 hours.</p>
+        <form id="contactForm">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div style="display:flex; gap:16px;">
+            <div class="form-group" style="flex:1;">
+              <label>Email Address</label>
+              <input type="email" class="form-control" required>
+            </div>
+            <div class="form-group" style="flex:1;">
+              <label>Phone Number</label>
+              <input type="tel" class="form-control" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <select class="form-control" required style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=\"%233D3D3D\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>') no-repeat right 16px center; background-color:var(--neutral-100);">
+              <option value="" disabled selected>Select a subject</option>
+              <option value="quote">Request a Quote</option>
+              <option value="claim">Claims Support</option>
+              <option value="partnership">Business Partnership</option>
+              <option value="general">General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Emergency Banner -->
+  <section class="emergency-banner">
+    <div class="container">
+      <h2>Need Immediate Claims Assistance?</h2>
+      <p style="margin-bottom: var(--sp-8); font-size:1.1rem;">Our emergency response team is available 24/7 for severe accidents or property damage.</p>
+      <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
+        <a href="tel:+256000000999" class="btn btn-white btn-pill"><i class="fa-solid fa-phone" style="margin-right:8px;"></i> Emergency Call</a>
+        <a href="https://wa.me/256000000999" class="btn btn-pill" style="background:var(--whatsapp); color:white;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Claims</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Map -->
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127670.686526136!2d32.4939794019183!3d0.31302927284793616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2suk!4v1714574345214!5m2!1sen!2suk" class="map-container" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> Redirecting to WhatsApp...';
+      btn.style.backgroundColor = 'var(--success)';
+      setTimeout(() => {
+        window.location.href = `https://wa.me/256000000000?text=Hello Stallion, I would like to make an inquiry via your contact form.`;
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

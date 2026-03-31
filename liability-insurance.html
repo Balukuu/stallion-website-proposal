@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liability Insurance Uganda | Stallion Insurance Brokers</title>
+  <meta name="description" content="Protect your Ugandan business against legal claims with tailored Public Liability, Employers Liability, and Professional Indemnity insurance.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* DESIGN SYSTEM */
+    :root {
+      --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
+      --success: #1B7A3E; --danger: #D64045;
+      --neutral-100: #F7F8FA; --neutral-200: #E8EAF0;
+      --neutral-500: #6B7280; --neutral-700: #3D3D3D; --neutral-900: #111827; --white: #FFFFFF;
+      --whatsapp: #25D366;
+      --sp-2: 8px; --sp-4: 16px; --sp-6: 24px; --sp-8: 32px; --sp-12: 48px; --sp-16: 64px; --sp-24: 96px;
+      --font-heading: 'Playfair Display', serif; --font-body: 'Inter', sans-serif;
+      --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
+    h1, h2, h3, h4, h5 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
+    h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
+    p { margin-bottom: var(--sp-4); font-size: 1rem; }
+    a { text-decoration: none; color: var(--primary); transition: 0.3s; }
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
+    .section { padding: var(--sp-16) 0; }
+    
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: var(--sp-4) var(--sp-8); font-weight: 600; border-radius: var(--radius-btn); cursor: pointer; transition: 0.3s; border: none; font-size: 1rem; }
+    .btn-pill { border-radius: var(--radius-pill); }
+    .btn-primary { background: var(--accent); color: var(--white); }
+
+    /* Navbar */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; background: var(--white); padding: var(--sp-4) 0; z-index: 1000; border-bottom: 1px solid var(--neutral-200); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display:flex; flex-direction:column; }
+    .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
+    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links a { font-weight: 500; color: var(--neutral-900); }
+    .nav-links a.active { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
+
+    /* Hero */
+    .product-hero { padding: 160px 0 var(--sp-12); background: linear-gradient(135deg, #2b3951 0%, #1e2637 100%); color: var(--white); text-align: center; }
+    .product-hero h1 { color: var(--white); margin-bottom: var(--sp-2); }
+    .hero-icon { font-size: 3.5rem; color: var(--accent); margin-bottom: var(--sp-4); display: inline-block; padding: 24px; background: rgba(255,255,255,0.05); border-radius: 50%; border: 2px solid rgba(201,149,42,0.5); }
+    .breadcrumb { display: flex; justify-content: center; gap: 8px; color: var(--neutral-200); font-size: 0.9rem; margin-top: var(--sp-6); opacity: 0.8;}
+    .breadcrumb a { color: var(--accent); }
+
+    /* Main Grid Layout */
+    .layout-grid { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-12); margin-top: var(--sp-8); }
+    
+    .content-box { margin-bottom: var(--sp-12); }
+    .content-box h2 { border-bottom: 2px solid var(--accent-light); padding-bottom: 8px; margin-bottom: var(--sp-6); }
+
+    /* Coverage Grid */
+    .coverage-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-6); margin-top: var(--sp-6); }
+    .coverage-item { display: flex; gap: 16px; align-items: flex-start; background: var(--neutral-100); padding: var(--sp-6); border-radius: var(--radius-card); }
+    .coverage-item i { font-size: 1.5rem; color: #1e2637; background: var(--white); padding: 12px; border-radius: 50%; box-shadow: var(--shadow-card); }
+    
+    .audience-box { background: rgba(43,57,81,0.05); border-left: 4px solid var(--primary); padding: var(--sp-8); border-radius: 0 var(--radius-card) var(--radius-card) 0; margin-bottom: var(--sp-12); }
+    .audience-box h3 { color: var(--primary); display: flex; align-items: center; gap: 12px; }
+
+    .diff-list { list-style: none; }
+    .diff-list li { padding: var(--sp-4); border: 1px solid var(--neutral-200); border-radius: var(--radius-card); margin-bottom: var(--sp-4); display: flex; gap: 16px; background: var(--white); }
+    .diff-list i { color: var(--success); font-size: 1.5rem; margin-top: 4px; }
+
+    .process-steps { display: flex; justify-content: space-between; gap: var(--sp-4); margin-bottom: var(--sp-12); text-align: center; }
+    .step-card { flex: 1; padding: var(--sp-6); background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); position: relative; }
+    .step-number { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 30px; height: 30px; background: var(--accent); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+    .step-card i { font-size: 2rem; color: #1e2637; margin: var(--sp-4) 0; }
+
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); margin-top: var(--sp-4); }
+    .related-card { border: 1px solid var(--neutral-200); border-radius: var(--radius-card); padding: var(--sp-4); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
+    .related-card:hover { border-color: var(--accent); background: var(--neutral-100); }
+    .related-card i { font-size: 1.5rem; color: var(--primary); }
+
+    /* Sidebar Form */
+    .sidebar-widget { background: var(--white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: var(--sp-8); position: sticky; top: 100px; border-top: 4px solid var(--primary); }
+    .form-group { margin-bottom: var(--sp-4); }
+    .form-group label { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 8px; }
+    .form-control { width: 100%; padding: 12px; border: 1px solid var(--neutral-200); border-radius: var(--radius-btn); font-family: var(--font-body); }
+    .sidebar-trust { margin-top: var(--sp-6); padding-top: var(--sp-6); border-top: 1px solid var(--neutral-200); }
+    .sidebar-trust ul li { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 0.9rem; }
+    .sidebar-trust i { color: var(--success); }
+
+    .accordion-item { border-bottom: 1px solid var(--neutral-200); }
+    .accordion-btn { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: var(--sp-4) 0; background: none; border: none; font-size: 1.1rem; font-weight: 600; color: var(--primary); cursor: pointer; text-align: left; font-family: var(--font-body); }
+    .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .accordion-content p { padding-bottom: var(--sp-4); color: var(--neutral-700); }
+    .accordion-btn.active + .accordion-content { max-height: 500px; }
+    .accordion-btn i { transition: 0.3s; color: var(--accent); }
+    .accordion-btn.active i { transform: rotate(180deg); }
+
+    /* Footer */
+    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: var(--sp-8); margin-bottom: var(--sp-8); }
+    .footer h4 { color: var(--white); font-family: var(--font-body); margin-bottom: var(--sp-4); }
+    .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: block; margin-bottom: var(--sp-2); }
+    .footer ul li { margin-bottom: 8px; }
+    .footer-bottom { background: #071932; padding: var(--sp-4) 0; text-align: center; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    @media(max-width: 900px) {
+      .layout-grid, .coverage-grid { grid-template-columns: 1fr; }
+      .process-steps { flex-direction: column; }
+      .sidebar-widget { position: static; }
+      .nav-links, .nav-right .btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products" class="active">Products</a></li>
+        <li><a href="claims.html">Claims</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <div class="container">
+      <div class="hero-icon"><i class="fa-solid fa-briefcase"></i></div>
+      <h1>Liability Insurance</h1>
+      <p style="font-size:1.2rem; max-width:600px; margin:0 auto; opacity:0.9;">Ensure your business survives costly litigation. Crucial protection against third-party lawsuits and employee injury claims in Uganda.</p>
+      <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; <span>Products</span> &rsaquo; <span style="color:var(--white);">Liability</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container layout-grid">
+      
+      <div class="main-content">
+        
+        <div class="content-box">
+          <h2>What is Liability Insurance?</h2>
+          <p>As the legal landscape in Uganda matures, businesses are increasingly facing lawsuits from clients, employees, and members of the public. A simple slip-and-fall in your retail store or an error in your consultancy report can result in devastating financial judgements.</p>
+          <p>Liability insurance shields your business's balance sheet by covering the immense costs of legal defense, court settlements, and compensation payouts if your company is found legally responsible for injury, property damage, or financial loss to a third party.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>What It Covers</h2>
+          <div class="coverage-grid">
+            <div class="coverage-item">
+              <i class="fa-solid fa-users"></i>
+              <div><h4>Public Liability</h4><p>Covers injury to members of the public or damage to their property occurring on your business premises.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-user-tie"></i>
+              <div><h4>Employers Liability (WC)</h4><p>Statutory Workers Compensation for employees who suffer injury, disease, or death during the course of their employment.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-file-signature"></i>
+              <div><h4>Professional Indemnity</h4><p>Crucial for consultants, doctors, and lawyers. Covers you against financial claims arising from professional negligence or bad advice.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-box-open"></i>
+              <div><h4>Products Liability</h4><p>Protects manufacturers and retailers if a defect in a product they sell causes harm or damage to a consumer.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-user-shield"></i>
+              <div><h4>Directors & Officers (D&O)</h4><p>Covers company directors if they are personally sued for wrongful acts in managing the company.</p></div>
+            </div>
+            <div class="coverage-item">
+              <i class="fa-solid fa-gavel"></i>
+              <div><h4>Legal Defense Costs</h4><p>Your policy pays for your lawyers and court fees, even if the third-party claim against your business is completely baseless.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="audience-box">
+          <h3><i class="fa-solid fa-building-circle-check"></i> Who is this for?</h3>
+          <p><strong>Professional Services:</strong> Law firms, accounting practices, IT consultants, and medical professionals working in Kampala who require Professional Indemnity.<br><br>
+          <strong>Contractors & Builders:</strong> Who must prove they hold Contractors All Risk (CAR) and Public Liability cover before stepping onto major sites.<br><br>
+          <strong>Retailers & Hospitality:</strong> Supermarkets, hotels, and restaurants who see high daily foot traffic and require robust Public Liability.</p>
+        </div>
+
+        <div class="content-box">
+          <h2>Why Get It Through Stallion?</h2>
+          <ul class="diff-list">
+            <li><i class="fa-solid fa-scale-unbalanced"></i> <div><h4>Litigation Defense</h4><p>Liability claims are legally complex. We work directly with the underwriter's legal team to ensure your brand reputation is protected during disputes.</p></div></li>
+            <li><i class="fa-solid fa-hand-holding-dollar"></i> <div><h4>Limit Optimization</h4><p>Most businesses either vastly under-insure or unnecessarily over-insure their liability risks. We calculate the exact Limits of Indemnity you require.</p></div></li>
+            <li><i class="fa-solid fa-file-contract"></i> <div><h4>Contract Requirements</h4><p>If you are bidding for an NGO or Government tender in Uganda, we provide the exact liability certification required to win the bid within 24 hours.</p></div></li>
+          </ul>
+        </div>
+
+        <div class="content-box">
+          <h2>How to Get Covered</h2>
+          <div class="process-steps">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <i class="fa-solid fa-list-check"></i>
+              <h4>Risk Profiling</h4>
+              <p>We analyze your daily operations, employee count, and annual turnover.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <i class="fa-solid fa-file-invoice"></i>
+              <h4>Tailored Quotation</h4>
+              <p>We approach underwriters to build a policy matching your specific risk exposure.</p>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <i class="fa-solid fa-certificate"></i>
+              <h4>Certification Issued</h4>
+              <p>You receive the necessary liability certificates to display or use in tender bids.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Frequently Asked Questions</h2>
+          <div class="accordion-item">
+            <button class="accordion-btn">Is Workers Compensation legally required in Uganda? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>Yes. Under the Workers' Compensation Act of Uganda, all employers are legally obliged to provide compensation for employees who are injured or contract diseases at work. An Employers Liability policy covers this statutory risk.</p></div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-btn">If I have Public Liability, do I need Professional Indemnity? <i class="fa-solid fa-chevron-down"></i></button>
+            <div class="accordion-content"><p>Yes, they cover entirely different things. Public Liability covers *physical* injury or property damage (e.g. someone trips in your office). Professional Indemnity covers *financial loss* due to bad professional advice (e.g. an architect drawing flawed blueprints).</p></div>
+          </div>
+        </div>
+
+        <div class="content-box">
+          <h2>Related Products</h2>
+          <div class="related-grid">
+            <a href="property-insurance.html" class="related-card">
+              <i class="fa-solid fa-house"></i> <div><strong>Property Insurance</strong><br>Protect the assets you work from.</div>
+            </a>
+            <a href="medical-insurance.html" class="related-card">
+              <i class="fa-solid fa-heart-pulse"></i> <div><strong>Group Medical</strong><br>Keep your workforce healthy and productive.</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar Form -->
+      <aside>
+        <div class="sidebar-widget">
+          <h3 style="margin-bottom: var(--sp-2);">Secure Your Liability</h3>
+          <p style="font-size: 0.9rem; margin-bottom: var(--sp-6);">Protect your business against legal shock.</p>
+          <form id="sideForm">
+            <input type="hidden" id="prodType" value="Liability">
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" id="sfName" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Contact Number</label>
+              <input type="tel" id="sfPhone" class="form-control" placeholder="+256" required>
+            </div>
+            <div class="form-group">
+              <label>Coverage Needed</label>
+              <select id="sfType" class="form-control" style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=\"%233D3D3D\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>') no-repeat right 12px center;">
+                <option>Public Liability</option>
+                <option>Professional Indemnity</option>
+                <option>Workers Compensation</option>
+                <option>Directors & Officers</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">Get Quick Quote</button>
+          </form>
+          
+          <div class="sidebar-trust">
+            <ul>
+              <li><i class="fa-solid fa-gavel"></i> Legal Defense Included</li>
+              <li><i class="fa-solid fa-file-contract"></i> Tender Ready Certificates</li>
+              <li><i class="fa-solid fa-scale-balanced"></i> Fair Underwriting</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+        </div>
+        <div>
+          <h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li></ul>
+        </div>
+        <div>
+          <h4>Our Products</h4><ul><li><a href="motor-insurance.html">Motor</a></li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stallion Insurance Brokers Limited. Regulated by IRAU.</p>
+    </div>
+  </footer>
+
+  <script>
+    const accordions = document.querySelectorAll('.accordion-btn');
+    accordions.forEach(acc => { acc.addEventListener('click', function() { this.classList.toggle('active'); }); });
+
+    document.getElementById('sideForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const n = document.getElementById('sfName').value;
+      const t = document.getElementById('sfType').value;
+      const text = `Hello Stallion, this is ${n}. We need a Liability Insurance quote for ${t}.`;
+      window.location.href = `https://wa.me/256000000000?text=${encodeURIComponent(text)}`;
+    });
+  </script>
+</body>
+</html>
