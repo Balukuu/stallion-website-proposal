@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -108,178 +108,173 @@
     .accordion-btn.active i { transform: rotate(180deg); }
 
         /* ===================== NEW FOOTER REDESIGN ===================== */
-      .footer {
-        background: #060F1E;
-        color: #8A96A8;
-        padding: 0;
-        border-top: 3px solid var(--accent);
-        position: relative;
-      }
-      .footer-body { padding: 64px 0 40px; }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.8fr 1fr 1fr 1.4fr 1.6fr;
-        gap: 40px;
-        margin-bottom: 0;
-      }
-      .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
-      .footer-logo {
-        font-family: var(--font-heading);
-        font-size: 2rem;
-        color: var(--white);
-        text-transform: uppercase;
-        font-weight: 800;
-        display: inline-block;
-        margin-bottom: 12px;
-        letter-spacing: 1px;
-        text-decoration: none;
-      }
-      .footer-logo span { color: var(--accent); }
-      .footer-tagline-badge {
-        display: block;
-        width: fit-content;
-        background: rgba(201,149,42,0.12);
-        border: 1px solid rgba(201,149,42,0.3);
-        color: var(--accent);
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        padding: 4px 10px;
-        border-radius: 20px;
-        margin-bottom: 16px;
-      }
-      .footer-social { display: flex; gap: 10px; margin-bottom: 24px; }
-      .footer-social a {
-        display: inline-flex;
-        width: 38px; height: 38px;
-        border-radius: 50%;
-        border: 1.5px solid rgba(255,255,255,0.12);
-        color: #8A96A8;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-      .footer-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: rgba(201,149,42,0.1); }
-      .footer-wa-cta {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: #1B7A3E;
-        color: var(--white);
-        font-size: 0.85rem;
-        font-weight: 600;
-        padding: 9px 18px;
-        border-radius: 50px;
-        text-decoration: none;
-        transition: 0.3s;
-      }
-      .footer-wa-cta:hover { background: #146131; transform: translateY(-2px); color: var(--white); }
-      .footer-col h4 {
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.75rem;
-        font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-        position: relative;
-      }
-      .footer-col h4::after {
-        content: '';
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: var(--accent);
-        margin-top: 8px;
-      }
-      .footer-col ul { list-style: none; padding: 0; margin: 0; }
-      .footer-col ul li { margin-bottom: 10px; }
-      .footer-col ul a {
-        color: #6B7A8D;
-        font-size: 0.9rem;
-        text-decoration: none;
-        transition: all 0.25s;
-        display: inline-flex;
-        align-items: center;
-      }
-      .footer-col ul a:hover { color: var(--white); padding-left: 8px; }
-      .footer-contact-item {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        margin-bottom: 14px;
-      }
-      .footer-contact-icon {
-        width: 32px; height: 32px;
-        background: rgba(201,149,42,0.1);
-        border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-        color: var(--accent);
-        font-size: 0.8rem;
-      }
-      .footer-contact-item span, .footer-contact-item a {
-        color: #6B7A8D;
-        font-size: 0.88rem;
-        line-height: 1.5;
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .footer-contact-item a:hover { color: var(--accent); }
-      .footer-newsletter p { font-size: 0.88rem; color: #6B7A8D; margin-bottom: 16px; line-height: 1.6; }
-      .footer-newsletter-form { display: flex; flex-direction: column; gap: 10px; }
-      .footer-newsletter-form input {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.1);
-        border-radius: 6px;
-        padding: 11px 14px;
-        color: var(--white);
-        font-family: var(--font-body);
-        font-size: 0.88rem;
-        outline: none;
-        transition: border-color 0.3s;
-      }
-      .footer-newsletter-form input:focus { border-color: var(--accent); }
-      .footer-newsletter-form button {
-        background: var(--accent);
-        color: var(--white);
-        border: none;
-        border-radius: 6px;
-        padding: 11px 14px;
-        font-family: var(--font-body);
-        font-size: 0.88rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-      }
-      .footer-newsletter-form button:hover { background: #b58322; }
-      .footer-newsletter-note { font-size: 0.75rem; color: #4A5568; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
-      .footer-newsletter-note i { color: var(--accent); }
-      .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
-      .footer-bottom { background: #030A12; padding: 20px 0; text-align: center; font-size: 0.82rem; }
-      .footer-bottom-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-      .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
-      @media(max-width: 1100px) {
-        .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
-        .footer-newsletter { grid-column: span 3; }
-      }
-      @media(max-width: 700px) {
-        .footer-grid { grid-template-columns: 1fr 1fr; }
-        .footer-newsletter { grid-column: 1 / -1; }
-        .footer-bottom-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-      }
-      @media(max-width: 480px) {
-        .footer-grid { grid-template-columns: 1fr; }
-      }
+    .footer {
+      background: #060F1E;
+      color: #8A96A8;
+      padding: 0;
+      border-top: 3px solid var(--accent);
+      position: relative;
+    }
+    .footer-body { padding: 64px 0 40px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.4fr 1.6fr;
+      gap: 40px;
+      margin-bottom: 0;
+    }
+    .footer-brand {
+      text-align: center;
+    }
+    .footer-logo {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .footer-logo img {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; justify-content: center; }
+    .footer-social a {
+      display: inline-flex;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: #8A96A8;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: rgba(201,149,42,0.1); }
+    .footer-wa-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B7A3E;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer-wa-cta:hover { background: #146131; transform: translateY(-2px); color: var(--white); }
+    .footer-wa-cta i { font-size: 1rem; }
+    .footer-col h4 {
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .footer-col h4::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 8px;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      color: #6B7A8D;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+    }
+    .footer-col ul a:hover { color: var(--white); padding-left: 8px; }
+    .footer-contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .footer-contact-icon {
+      width: 32px; height: 32px;
+      background: rgba(201,149,42,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .footer-contact-item span, .footer-contact-item a {
+      color: #6B7A8D;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-contact-item a:hover { color: var(--accent); }
+    .footer-newsletter p { font-size: 0.88rem; color: #6B7A8D; margin-bottom: 16px; line-height: 1.6; }
+    .footer-newsletter-form { display: flex; flex-direction: column; gap: 10px; }
+    .footer-newsletter-form input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 11px 14px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .footer-newsletter-form input::placeholder { color: #4A5568; }
+    .footer-newsletter-form input:focus { border-color: var(--accent); }
+    .footer-newsletter-form button {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .footer-newsletter-form button:hover { background: #b58322; }
+    .footer-newsletter-note { font-size: 0.75rem; color: #4A5568; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
+    .footer-newsletter-note i { color: var(--accent); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
+    .footer-bottom { background: #030A12; padding: 20px 0; text-align: center; font-size: 0.82rem; }
+    .footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-irau-badge { display: inline-flex; align-items: center; gap: 6px; color: #8A96A8; font-size: 0.8rem; }
+    .footer-irau-badge i { color: var(--accent); font-size: 1rem; }
+    .footer-copyright { color: #4A5568; }
+    .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .footer-credit a:hover { text-decoration: underline; }
+    @media(max-width: 1100px) {
+      .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-newsletter { grid-column: span 3; }
+    }
+    @media(max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-newsletter { grid-column: 1 / -1; }
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+    }
+    @media(max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
     /* ===================== END FOOTER REDESIGN ===================== */
 
     @media(max-width: 900px) {
@@ -325,7 +320,7 @@
         
         <div class="content-box">
           <h2>What is Life Insurance?</h2>
-          <p>Many Ugandans rely entirely on the National Social Security Fund (NSSF) or extended family networks to cover life’s worst contingencies. However, building independent financial security requires a guaranteed buffer.</p>
+          <p>Many Ugandans rely entirely on the National Social Security Fund (NSSF) or extended family networks to cover lifeâ€™s worst contingencies. However, building independent financial security requires a guaranteed buffer.</p>
           <p>Life Insurance provides a tax-free lump sum payment to your chosen beneficiaries in the event of your unforeseen demise, critical illness, or permanent disability. Whether you want to ensure your children can finish university or that your spouse is unburdened by debt, a life policy acts as a concrete promise of continued financial care.</p>
         </div>
 
@@ -342,7 +337,7 @@
             </div>
             <div class="coverage-item">
               <i class="fa-solid fa-graduation-cap"></i>
-              <div><h4>Education Policy</h4><p>Guaranteed maturity payouts timed perfectly to cover your children’s high school or university fees in Uganda or abroad.</p></div>
+              <div><h4>Education Policy</h4><p>Guaranteed maturity payouts timed perfectly to cover your childrenâ€™s high school or university fees in Uganda or abroad.</p></div>
             </div>
             <div class="coverage-item">
               <i class="fa-solid fa-wheelchair"></i>
@@ -450,7 +445,7 @@
             </div>
             <div class="form-group">
               <label>Policy Interest</label>
-              <select id="sfType" class="form-control" style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=\"%233D3D3D\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>') no-repeat right 12px center;">
+              <select id="sfType" class="form-control" style="appearance:none; background:url('data:image/svg+xml;utf8,<svg fill=%22%233D3D3D%22 viewBox=%220%200%2024%2024%22 xmlns=%22http://www.w3.org/2000/svg%22><path d=%22M7 10l5 5 5-5z%22/></svg>') no-repeat right 12px center;">
                 <option>Education Policy</option>
                 <option>Personal Life Cover</option>
                 <option>Corporate Group Life</option>
@@ -480,8 +475,9 @@
 
           <!-- Brand Column -->
           <div class="footer-brand">
-            <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
-            
+            <a href="index.html" class="footer-logo">
+              <img src="logo.png" alt="Stallion Insurance Brokers">
+            </a>
             <p>Uganda's preferred provider of bespoke risk management and insurance advisory services for individuals, families, and businesses across East Africa.</p>
             <div class="footer-social">
               <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -561,7 +557,10 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-        
+        <div class="footer-irau-badge">
+          <i class="fa-solid fa-shield-check"></i>
+          Regulated by the Insurance Regulatory Authority of Uganda (IRAU)
+        </div>
         <p class="footer-copyright">&copy; 2026 Stallion Insurance Brokers Limited. All Rights Reserved.</p>
         <p class="footer-credit">Designed by <a href="https://blactec.ug" target="_blank">BlacTec</a></p>
       </div>
@@ -582,6 +581,9 @@
   </script>
 </body>
 </html>
+
+
+
 
 
 

@@ -442,37 +442,20 @@
       gap: 40px;
       margin-bottom: 0;
     }
-    
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      color: var(--white);
-      text-transform: uppercase;
-      font-weight: 800;
-      display: inline-block;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-      text-decoration: none;
+    .footer-brand {
+      text-align: center;
     }
-    .footer-logo span { color: var(--accent); }
-    .footer-tagline-badge {
-      display: block;
-      width: fit-content;
-      align-items: center;
-      gap: 6px;
-      background: rgba(201,149,42,0.12);
-      border: 1px solid rgba(201,149,42,0.3);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 16px;
+    .footer-logo {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .footer-logo img {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
     }
     .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
-    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; justify-content: center; }
     .footer-social a {
       display: inline-flex;
       width: 38px; height: 38px;
@@ -592,8 +575,11 @@
     .footer-newsletter-note i { color: var(--accent); }
     .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
     .footer-bottom { background: #030A12; padding: 20px 0; text-align: center; font-size: 0.82rem; }
-    .footer-bottom-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-      .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-irau-badge { display: inline-flex; align-items: center; gap: 6px; color: #8A96A8; font-size: 0.8rem; }
+    .footer-irau-badge i { color: var(--accent); font-size: 1rem; }
+    .footer-copyright { color: #4A5568; }
+    .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
     .footer-credit a:hover { text-decoration: underline; }
     @media(max-width: 1100px) {
       .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -604,9 +590,9 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: 1 / -1; }
       .footer-newsletter { grid-column: 1 / -1; }
-      .footer-bottom-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
-      }
-      @media(max-width: 480px) {
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+    }
+    @media(max-width: 480px) {
       .footer-grid { grid-template-columns: 1fr; }
     }
     /* ===================== END FOOTER REDESIGN ===================== */
@@ -941,6 +927,7 @@
         <div class="partner-logo"><img src="Britam.png" alt="Britam"></div>
         <div class="partner-logo"><img src="ICEA Lion.png" alt="ICEA Lion"></div>
         <div class="partner-logo"><img src="Goldstar.jpg" alt="Goldstar"></div>
+        <div class="partner-logo"><img src="MUA.svg" alt="MUA"></div>
         <!-- Duplicates -->
         <div class="partner-logo"><img src="Sanlam.png" alt="Sanlam"></div>
         <div class="partner-logo"><img src="UAP Old Mutual.jpg" alt="UAP Old Mutual"></div>
@@ -948,6 +935,7 @@
         <div class="partner-logo"><img src="Britam.png" alt="Britam"></div>
         <div class="partner-logo"><img src="ICEA Lion.png" alt="ICEA Lion"></div>
         <div class="partner-logo"><img src="Goldstar.jpg" alt="Goldstar"></div>
+        <div class="partner-logo"><img src="MUA.svg" alt="MUA"></div>
       </div>
     </div>
   </section>
@@ -960,8 +948,9 @@
 
           <!-- Brand Column -->
           <div class="footer-brand">
-            <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
-
+            <a href="index.html" class="footer-logo">
+              <img src="logo.png" alt="Stallion Insurance Brokers">
+            </a>
             <p>Uganda's preferred provider of bespoke risk management and insurance advisory services for individuals, families, and businesses across East Africa.</p>
             <div class="footer-social">
               <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -1041,7 +1030,10 @@
 
     <div class="footer-bottom">
       <div class="container footer-bottom-inner">
-
+        <div class="footer-irau-badge">
+          <i class="fa-solid fa-shield-check"></i>
+          Regulated by the Insurance Regulatory Authority of Uganda (IRAU)
+        </div>
         <p class="footer-copyright">&copy; 2026 Stallion Insurance Brokers Limited. All Rights Reserved.</p>
         <p class="footer-credit">Designed by <a href="https://blactec.ug" target="_blank">BlacTec</a></p>
       </div>

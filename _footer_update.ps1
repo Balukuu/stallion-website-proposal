@@ -1,10 +1,10 @@
-
 # =========================================================
 # STALLION FOOTER UPDATE SCRIPT
 # Replaces old footer CSS + HTML across all pages
 # =========================================================
 
 $files = @(
+  "index.html",
   "about.html",
   "contact.html",
   "claims.html",
@@ -21,7 +21,7 @@ $files = @(
 $baseDir = "C:\Users\spidd16\Downloads\stallion website proposal"
 
 # ---- NEW FOOTER CSS ----
-$newCSS = @"
+$newCSS = @'
     /* ===================== NEW FOOTER REDESIGN ===================== */
     .footer {
       background: #060F1E;
@@ -37,37 +37,20 @@ $newCSS = @"
       gap: 40px;
       margin-bottom: 0;
     }
-    .footer-brand {}
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 2rem;
-      color: var(--white);
-      text-transform: uppercase;
-      font-weight: 800;
-      display: inline-block;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-      text-decoration: none;
+    .footer-brand {
+      text-align: center;
     }
-    .footer-logo span { color: var(--accent); }
-    .footer-tagline-badge {
-      display: block;
-      width: fit-content;
-      align-items: center;
-      gap: 6px;
-      background: rgba(201,149,42,0.12);
-      border: 1px solid rgba(201,149,42,0.3);
-      color: var(--accent);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 16px;
+    .footer-logo {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .footer-logo img {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
     }
     .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
-    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; justify-content: center; }
     .footer-social a {
       display: inline-flex;
       width: 38px; height: 38px;
@@ -208,10 +191,10 @@ $newCSS = @"
       .footer-grid { grid-template-columns: 1fr; }
     }
     /* ===================== END FOOTER REDESIGN ===================== */
-"@
+'@
 
 # ---- NEW FOOTER HTML ----
-$newHTML = @"
+$newHTML = @'
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-body">
@@ -220,8 +203,9 @@ $newHTML = @"
 
           <!-- Brand Column -->
           <div class="footer-brand">
-            <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
-            <span class="footer-tagline-badge"><i class="fa-solid fa-shield-check"></i> IRAU Licensed Broker</span>
+            <a href="index.html" class="footer-logo">
+              <img src="logo.png" alt="Stallion Insurance Brokers">
+            </a>
             <p>Uganda's preferred provider of bespoke risk management and insurance advisory services for individuals, families, and businesses across East Africa.</p>
             <div class="footer-social">
               <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -306,72 +290,59 @@ $newHTML = @"
           Regulated by the Insurance Regulatory Authority of Uganda (IRAU)
         </div>
         <p class="footer-copyright">&copy; 2026 Stallion Insurance Brokers Limited. All Rights Reserved.</p>
-        <p class="footer-credit">Designed by <a href="https://blactec.ug" target="_blank">BlacTec &mdash; blactec.ug</a></p>
+        <p class="footer-credit">Designed by <a href="https://blactec.ug" target="_blank">BlacTec</a></p>
       </div>
     </div>
   </footer>
-"@
+'@
 
-$processed = 0
-$errors = 0
+$processedCount = 0
+$errorCount = 0
 
-foreach ($file in $files) {
-    $path = Join-Path $baseDir $file
-    if (-not (Test-Path $path)) {
-        Write-Host "SKIP (not found): $file"
+foreach ($fileName in $files) {
+    $filePath = Join-Path $baseDir $fileName
+    if (-not (Test-Path $filePath)) {
+        Write-Host "SKIP (not found): $fileName"
         continue
     }
 
-    $content = Get-Content $path -Raw -Encoding UTF8
-
-    # --- 1. Replace old footer CSS ---
-    # Pattern: match from "/* Footer */" comment to the end of the last @media block in the footer section
-    # We'll use a simpler approach: find and replace known CSS patterns
-
-    # Replace old .footer { background: var(--primary) ... styles
-    $oldCSSPatterns = @(
-        '(?s)/\* Footer \*/.*?\.footer-bottom img \{[^}]+\}',
-        '(?s)/\* Footer \*/.*?border-top: 1px solid rgba\(255,255,255,0\.05\); \}',
-        '(?s)/\* Footer \*/.*?font-size: 0\.85rem; \}[\s\n]*(?=\s*/\* |\s*\.footer-contact|\s*$)'
-    )
+    $fileContent = Get-Content $filePath -Raw -Encoding UTF8
 
     $cssReplaced = $false
-    # Simple approach: find the footer CSS block and replace
-    if ($content -match '(?s)(    /\* Footer \*/\r?\n.*?\.footer-bottom \{[^\}]+\})') {
-        $content = $content -replace '(?s)(    /\* Footer \*/\r?\n.*?\.footer-bottom-inner \{[^\}]+\}|    /\* Footer \*/\r?\n.*?border-top: 1px solid rgba\(255,255,255,0\.05\); \}\r?\n    \.footer-bottom img \{[^\}]+\}|    /\* Footer \*/\r?\n.*?border-top: 1px solid rgba\(255,255,255,0\.05\); \})', $newCSS
+    if ($fileContent -match '(?s)(    /\* ===================== NEW FOOTER REDESIGN ===================== \*/\r?\n.*?/\* ===================== END FOOTER REDESIGN ===================== \*/)') {
+        $fileContent = $fileContent -replace '(?s)(    /\* ===================== NEW FOOTER REDESIGN ===================== \*/\r?\n.*?/\* ===================== END FOOTER REDESIGN ===================== \*/)', $newCSS
+        $cssReplaced = $true
+    } elseif ($fileContent -match '(?s)(    /\* Footer \*/\r?\n.*?\.footer-bottom \{[^\}]+\})') {
+        $fileContent = $fileContent -replace '(?s)(    /\* Footer \*/\r?\n.*?\.footer-bottom-inner \{[^\}]+\}|    /\* Footer \*/\r?\n.*?border-top: 1px solid rgba\(255,255,255,0\.05\); \}\r?\n    \.footer-bottom img \{[^\}]+\}|    /\* Footer \*/\r?\n.*?border-top: 1px solid rgba\(255,255,255,0\.05\); \})', $newCSS
         $cssReplaced = $true
     }
 
-    # Simpler: just do a targeted replace of the "/* Footer */" block
-    if ($content -match '    /\* Footer \*/') {
-        # Find footer CSS block - replace from /* Footer */ to (but not including) the next /* comment or end of style
-        $content = $content -replace '(?s)    /\* Footer \*/.*?(?=    /\* [A-Z]|\s*</style>)', "$newCSS`n"
-        $cssReplaced = $true
+    if (-not $cssReplaced -and ($fileContent -match '    /\* Footer \*/')) {
+        $fileContent = $fileContent -replace '(?s)    /\* Footer \*/.*?(?=    /\* [A-Z]|\s*</style>)', "$newCSS`n"
     }
 
-    # --- 2. Replace old footer HTML ---
-    # Remove the old <footer>...</footer> block  
-    $oldFooterPattern = '(?s)  <!-- Footer -->\s*<footer class="footer">.*?</footer>'
-    if ($content -match $oldFooterPattern) {
-        $content = $content -replace $oldFooterPattern, $newHTML
-        Write-Host "UPDATED: $file"
-        $processed++
+    $htmlReplaced = $false
+    $footerPattern = '(?s)  <!-- Footer -->\s*<footer class="footer">.*?</footer>'
+    if ($fileContent -match $footerPattern) {
+        $fileContent = $fileContent -replace $footerPattern, $newHTML
+        $htmlReplaced = $true
     } else {
-        # Try alternative footer pattern (without comment)
-        $altPattern = '(?s)<footer class="footer">.*?</footer>'
-        if ($content -match $altPattern) {
-            $content = $content -replace $altPattern, $newHTML
-            Write-Host "UPDATED (alt): $file"
-            $processed++
-        } else {
-            Write-Host "WARNING - Footer HTML not found: $file"
-            $errors++
+        $altFooterPattern = '(?s)<footer class="footer">.*?</footer>'
+        if ($fileContent -match $altFooterPattern) {
+            $fileContent = $fileContent -replace $altFooterPattern, $newHTML
+            $htmlReplaced = $true
         }
     }
 
-    # Write back
-    [System.IO.File]::WriteAllText($path, $content, [System.Text.Encoding]::UTF8)
+    if ($htmlReplaced) {
+        Write-Host "UPDATED: $fileName"
+        $processedCount++
+        [System.IO.File]::WriteAllText($filePath, $fileContent, [System.Text.Encoding]::UTF8)
+    } else {
+        Write-Host "WARNING - Footer HTML not found: $fileName"
+        $errorCount++
+    }
 }
 
 Write-Host ""
-Write-Host "Done. Processed: $processed | Errors: $errors"
+Write-Host "Done. Processed: $processedCount | Errors: $errorCount"
