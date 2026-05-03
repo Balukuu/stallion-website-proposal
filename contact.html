@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; scrollbar-width: none; -ms-overflow-style: none; } 
+    *::-webkit-scrollbar { display: none; }
+    ul { list-style: none; padding: 0; margin: 0; }
     /* DESIGN SYSTEM */
     :root {
       --primary: #0A2342; --accent: #C9952A; --accent-light: #F5E6C8;
@@ -21,12 +24,12 @@
       --radius-card: 8px; --radius-btn: 4px; --radius-pill: 50px;
       --shadow-card: 0 4px 24px rgba(0,0,0,0.08); --shadow-hover: 0 12px 32px rgba(0,0,0,0.12);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; scrollbar-width: none; -ms-overflow-style: none; } 
+    *::-webkit-scrollbar { display: none; }
     body { font-family: var(--font-body); color: var(--neutral-700); line-height: 1.6; background: var(--white); overflow-x: hidden; }
     h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--primary); margin-bottom: var(--sp-4); line-height: 1.2; }
     h1 { font-size: 3rem; } h2 { font-size: 2.2rem; } h3 { font-size: 1.6rem; } h4 { font-size: 1.2rem; }
     a { text-decoration: none; color: var(--primary); transition: 0.3s; }
-    ul { list-style: none; }
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
     .section { padding: var(--sp-24) 0; }
     .section-light { background-color: var(--neutral-100); }
@@ -36,7 +39,7 @@
     .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-6); }
     .logo-text { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--primary); text-transform: uppercase; line-height: 1; display: flex; flex-direction: column; }
     .logo-text .tagline { font-size: 0.8rem; color: var(--accent); font-family: var(--font-body); letter-spacing: 1px; }
-    .nav-links { display: flex; gap: var(--sp-8); align-items: center; }
+    .nav-links { list-style: none; display: flex; gap: var(--sp-8); align-items: center; }
     .nav-links a { font-weight: 500; color: var(--neutral-900); }
     .nav-links a:hover { color: var(--accent); }
     .nav-right { display: flex; align-items: center; gap: var(--sp-4); }
@@ -44,6 +47,13 @@
     .btn-pill { border-radius: var(--radius-pill); }
     .btn-primary { background: var(--accent); color: var(--white); }
     .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+    .mobile-drawer { position: fixed; top: 0; left: 0; width: 100%; height: 0; background: var(--primary); overflow: hidden; transition: 0.4s; z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .mobile-drawer.active { height: 100vh; }
+    .mobile-drawer a { color: var(--white); font-size: 1.5rem; font-family: var(--font-heading); margin: var(--sp-4) 0; opacity: 0; transform: translateY(20px); transition: 0.3s; }
+    .mobile-drawer.active a { opacity: 1; transform: translateY(0); }
+    .mobile-bottom-bar { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--white); box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 99; }
+    .mobile-bottom-bar a { flex: 1; text-align: center; padding: 12px 0; color: var(--neutral-700); font-weight: 600; font-size: 0.85rem; display: flex; flex-direction: column; align-items: center; gap: 4px; border-right: 1px solid var(--neutral-200); }
+    .mobile-bottom-bar a:last-child { border: none; }
 
     /* Hero */
     .page-hero { padding: 180px 0 var(--sp-12) 0; background: linear-gradient(135deg, var(--neutral-100) 0%, #fff 100%); text-align: center; border-bottom: 1px solid var(--neutral-200); }
@@ -80,36 +90,277 @@
     /* Map */
     .map-container { width: 100%; height: 500px; display: block; }
 
-    /* Footer */
-    .footer { background: var(--primary); color: #A0ABC0; padding: var(--sp-12) 0 0 0; }
-    .footer-bottom { background: #071932; padding: var(--sp-6) 0; text-align: center; color: var(--white); font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    /* ===================== NEW FOOTER REDESIGN ===================== */
+    .footer {
+      background: #060F1E;
+      color: #8A96A8;
+      padding: 0;
+      border-top: 3px solid var(--accent);
+      position: relative;
+    }
+    .footer-body { padding: 64px 0 40px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.4fr 1.6fr;
+      gap: 40px;
+      margin-bottom: 0;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      color: var(--white);
+      text-transform: uppercase;
+      font-weight: 800;
+      display: inline-block;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-tagline-badge {
+      display: block;
+      width: fit-content;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,149,42,0.12);
+      border: 1px solid rgba(201,149,42,0.3);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; }
+    .footer-social a {
+      display: inline-flex;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.12);
+      color: #8A96A8;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: rgba(201,149,42,0.1); }
+    .footer-wa-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #1B7A3E;
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 9px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .footer-wa-cta:hover { background: #146131; transform: translateY(-2px); color: var(--white); }
+    .footer-wa-cta i { font-size: 1rem; }
+    .footer-col h4 {
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .footer-col h4::after {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent);
+      margin-top: 8px;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      color: #6B7A8D;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.25s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0;
+    }
+    .footer-col ul a:hover { color: var(--white); padding-left: 8px; }
+    .footer-contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .footer-contact-icon {
+      width: 32px; height: 32px;
+      background: rgba(201,149,42,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+    .footer-contact-item span, .footer-contact-item a {
+      color: #6B7A8D;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-contact-item a:hover { color: var(--accent); }
+    .footer-newsletter p { font-size: 0.88rem; color: #6B7A8D; margin-bottom: 16px; line-height: 1.6; }
+    .footer-newsletter-form { display: flex; flex-direction: column; gap: 10px; }
+    .footer-newsletter-form input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 6px;
+      padding: 11px 14px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .footer-newsletter-form input::placeholder { color: #4A5568; }
+    .footer-newsletter-form input:focus { border-color: var(--accent); }
+    .footer-newsletter-form button {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .footer-newsletter-form button:hover { background: #b58322; }
+    .footer-newsletter-note { font-size: 0.75rem; color: #4A5568; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
+    .footer-newsletter-note i { color: var(--accent); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
+    .footer-bottom { background: #030A12; padding: 20px 0; text-align: center; font-size: 0.82rem; }
+    .footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-irau-badge { display: inline-flex; align-items: center; gap: 6px; color: #8A96A8; font-size: 0.8rem; }
+    .footer-irau-badge i { color: var(--accent); font-size: 1rem; }
+    .footer-copyright { color: #4A5568; }
+    .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .footer-credit a:hover { text-decoration: underline; }
+    @media(max-width: 1100px) {
+      .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-newsletter { grid-column: span 3; }
+    }
+    @media(max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-newsletter { grid-column: 1 / -1; }
+      .footer-bottom-inner { flex-direction: column; text-align: center; }
+    }
+    @media(max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    /* ===================== END FOOTER REDESIGN ===================== */
 
     @media(max-width: 900px) {
       .contact-layout { grid-template-columns: 1fr; }
       .nav-links, .nav-right .btn { display: none; }
       .mobile-toggle { display: block; }
+      .mobile-bottom-bar { display: flex; }
+      body { padding-bottom: 60px; }
     }
+    .footer { background: #060F1E; color: #8A96A8; padding: 0; border-top: 3px solid var(--accent); position: relative; }
+    .footer-body { padding: 64px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.4fr 1.6fr; gap: 40px; margin-bottom: 0; }
+    .footer-brand {}
+    .footer-logo { font-family: var(--font-heading); font-size: 2rem; color: var(--white); text-transform: uppercase; font-weight: 800; display: inline-block; margin-bottom: 12px; letter-spacing: 1px; text-decoration: none; }
+    .footer-logo span { color: var(--accent); }
+    .footer-tagline-badge { display: block; width: fit-content; background: rgba(201,149,42,0.12); border: 1px solid rgba(201,149,42,0.3); color: var(--accent); font-size: 0.72rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; color: #6B7A8D; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; margin-bottom: 24px; }
+    .footer-social a { display: inline-flex; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.12); color: #8A96A8; align-items: center; justify-content: center; font-size: 0.9rem; transition: all 0.3s ease; text-decoration: none; }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); background: rgba(201,149,42,0.1); }
+    .footer-wa-cta { display: inline-flex; align-items: center; gap: 8px; background: #1B7A3E; color: var(--white); font-size: 0.85rem; font-weight: 600; padding: 9px 18px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
+    .footer-wa-cta:hover { background: #146131; transform: translateY(-2px); color: var(--white); }
+    .footer-col h4 { color: var(--white); font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); position: relative; }
+    .footer-col h4::after { content: ''; display: block; width: 24px; height: 2px; background: var(--accent); margin-top: 8px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { color: #6B7A8D; font-size: 0.9rem; text-decoration: none; transition: all 0.25s; display: inline-flex; align-items: center; }
+    .footer-col ul a:hover { color: var(--white); padding-left: 8px; }
+    .footer-contact-item { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; }
+    .footer-contact-icon { width: 32px; height: 32px; background: rgba(201,149,42,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); font-size: 0.8rem; }
+    .footer-contact-item span, .footer-contact-item a { color: #6B7A8D; font-size: 0.88rem; line-height: 1.5; text-decoration: none; transition: color 0.2s; }
+    .footer-contact-item a:hover { color: var(--accent); }
+    .footer-newsletter p { font-size: 0.88rem; color: #6B7A8D; margin-bottom: 16px; line-height: 1.6; }
+    .footer-newsletter-form { display: flex; flex-direction: column; gap: 10px; }
+    .footer-newsletter-form input { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 11px 14px; color: var(--white); font-family: var(--font-body); font-size: 0.88rem; outline: none; transition: border-color 0.3s; }
+    .footer-newsletter-form input::placeholder { color: #4A5568; }
+    .footer-newsletter-form input:focus { border-color: var(--accent); }
+    .footer-newsletter-form button { background: var(--accent); color: var(--white); border: none; border-radius: 6px; padding: 11px 14px; font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .footer-newsletter-form button:hover { background: #b58322; }
+    .footer-newsletter-note { font-size: 0.75rem; color: #4A5568; margin-top: 8px; display: flex; align-items: center; gap: 5px; }
+    .footer-newsletter-note i { color: var(--accent); }
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.05); margin: 0; }
+    .footer-bottom { background: #030A12; padding: 20px 0; font-size: 0.82rem; }
+    .footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-irau-badge { display: inline-flex; align-items: center; gap: 6px; color: #8A96A8; font-size: 0.8rem; }
+    .footer-irau-badge i { color: var(--accent); font-size: 1rem; }
+    .footer-copyright { color: #4A5568; }
+    .footer-credit a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    @media(max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } .footer-newsletter { grid-column: span 3; } }
+    @media(max-width: 700px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand, .footer-newsletter { grid-column: 1 / -1; } .footer-bottom-inner { flex-direction: column; text-align: center; } }
+    @media(max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
   </style>
+  <link rel="icon" type="image/png" href="logo.png">
 </head>
 <body>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="index.html" class="logo-text">Stallion <span class="tagline">Insurance Brokers</span></a>
+      <a href="index.html"><img src="logo.png" alt="Stallion Insurance Brokers" style="height: 68px; width:auto;"></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="index.html#products">Products</a></li>
         <li><a href="claims.html">Claims</a></li>
+        <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html" style="color:var(--accent);">Contact</a></li>
       </ul>
       <div class="nav-right">
         <a href="get-a-quote.html" class="btn btn-primary btn-pill">Get a Free Quote</a>
-        <i class="fa-solid fa-bars mobile-toggle"></i>
+        <i class="fa-solid fa-bars mobile-toggle" id="mobileToggle"></i>
       </div>
     </div>
   </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <i class="fa-solid fa-times mobile-toggle" style="position:absolute; top:24px; right:24px; color:white;" id="closeDrawer"></i>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="index.html#products">Our Products</a>
+    <a href="claims.html">Make a Claim</a>
+    <a href="resources.html">Resources</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="get-a-quote.html" class="btn btn-primary btn-pill" style="margin-top: 24px;">Get a Quote</a>
+  </div>
 
   <!-- Hero -->
   <section class="page-hero">
@@ -137,7 +388,7 @@
           <i class="fa-solid fa-phone"></i>
           <div>
             <h4>Direct Lines</h4>
-            <p><a href="tel:+256393224055">+256 393 224 055</a><br><a href="tel:+256200995562">+256 200 995 562</a></p>
+            <p><a href="tel:+256751365747">+256 751 365 747</a><br><a href="tel:+256200995562">+256 200 995 562</a></p>
           </div>
         </div>
         <div class="contact-item">
@@ -206,14 +457,31 @@
       <h2>Need Immediate Claims Assistance?</h2>
       <p style="margin-bottom: var(--sp-8); font-size:1.1rem;">Our emergency response team is available 24/7 for severe accidents or property damage.</p>
       <div style="display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-        <a href="tel:+256000000999" class="btn btn-white btn-pill"><i class="fa-solid fa-phone" style="margin-right:8px;"></i> Emergency Call</a>
-        <a href="https://wa.me/256000000999" class="btn btn-pill" style="background:var(--whatsapp); color:white;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Claims</a>
+      <a href="tel:+256751365747" class="btn btn-white btn-pill"><i class="fa-solid fa-phone" style="margin-right:8px;"></i> Emergency Call</a>
+        <a href="https://wa.me/256751365747" class="btn btn-pill" style="background:var(--whatsapp); color:white;"><i class="fa-brands fa-whatsapp" style="margin-right:8px;"></i> WhatsApp Claims</a>
       </div>
     </div>
   </section>
 
   <!-- Google Map -->
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127670.686526136!2d32.4939794019183!3d0.31302927284793616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbc0f9d74b39b%3A0x4538903dd96b6fec!2sKampala%2C%20Uganda!5e0!3m2!1sen!2suk!4v1714574345214!5m2!1sen!2suk" class="map-container" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+  </script>
+
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bottom-bar">
+    <a href="tel:+256751365747"><i class="fa-solid fa-phone"></i> Call</a>
+    <a href="https://wa.me/256751365747"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    <a href="get-a-quote.html"><i class="fa-solid fa-clipboard-list"></i> Get Quote</a>
+  </div>
+
+  <script>
+    const mobileToggle = document.getElementById('mobileToggle');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const drawer = document.getElementById('mobileDrawer');
+    mobileToggle.addEventListener('click', () => drawer.classList.add('active'));
+    closeDrawer.addEventListener('click', () => drawer.classList.remove('active'));
+  </script>
 
   <script>
     document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -222,9 +490,86 @@
       btn.innerHTML = '<i class="fa-solid fa-check"></i> Redirecting to WhatsApp...';
       btn.style.backgroundColor = 'var(--success)';
       setTimeout(() => {
-        window.location.href = `https://wa.me/256393224055?text=Hello Stallion, I would like to make an inquiry via your contact form.`;
+        window.location.href = `https://wa.me/256751365747?text=Hello Stallion, I would like to make an inquiry via your contact form.`;
       }, 1000);
     });
   </script>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-body">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="footer-logo">Stallion <span>Brokers</span></a>
+            
+            <p>Uganda's preferred provider of bespoke risk management and insurance advisory services for individuals, families, and businesses across East Africa.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+            <a href="https://wa.me/256751365747?text=Hello%20Stallion%20Insurance" class="footer-wa-cta" target="_blank"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="get-a-quote.html">Get a Quote</a></li>
+              <li><a href="claims.html">Make a Claim</a></li>
+              <li><a href="resources.html">Resources &amp; Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Our Products</h4>
+            <ul>
+              <li><a href="motor-insurance.html">Motor Insurance</a></li>
+              <li><a href="medical-insurance.html">Medical Insurance</a></li>
+              <li><a href="life-insurance.html">Life Insurance</a></li>
+              <li><a href="property-insurance.html">Property Insurance</a></li>
+              <li><a href="liability-insurance.html">Liability Insurance</a></li>
+              <li><a href="agriculture-insurance.html">Agriculture Insurance</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Info</h4>
+            <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fa-solid fa-location-dot"></i></div><span>Plot 11, Martyrs Lane, Ntinda<br>Minister&rsquo;s Village, Kampala, Uganda</span></div>
+            <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fa-solid fa-phone"></i></div><span><a href="tel:+256751365747">+256 751 365 747</a><br><a href="tel:+256200995562">+256 200 995 562</a></span></div>
+            <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fa-solid fa-envelope"></i></div><a href="mailto:info@stallion.co.ug">info@stallion.co.ug</a></div>
+            <div class="footer-contact-item"><div class="footer-contact-icon"><i class="fa-solid fa-clock"></i></div><span>Mon &ndash; Fri: 8:00 AM &ndash; 5:00 PM<br>Saturday: 9:00 AM &ndash; 1:00 PM</span></div>
+          </div>
+          <div class="footer-col footer-newsletter">
+            <h4>Stay Informed</h4>
+            <p>Join thousands of Ugandans receiving expert insurance insights and market updates monthly.</p>
+            <form class="footer-newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check\'></i> Subscribed!'; this.querySelector('button').style.background='#1B7A3E';">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit"><i class="fa-solid fa-paper-plane"></i> Subscribe</button>
+            </form>
+            <p class="footer-newsletter-note"><i class="fa-solid fa-lock"></i> No spam, ever. Unsubscribe anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        
+        <p class="footer-copyright">&copy; 2026 Stallion Insurance Brokers Limited. All Rights Reserved.</p>
+        <p class="footer-credit">Designed by <a href="https://blactec.ug" target="_blank">BlacTec &mdash; blactec.ug</a></p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
